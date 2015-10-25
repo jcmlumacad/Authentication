@@ -24,3 +24,4 @@
 *.jpg binary
 *.gif binary
 *.tiff binary
+* text=auto
