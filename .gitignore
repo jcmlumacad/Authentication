@@ -1,6 +1,0 @@
-.DS_Store
-composer.lock
-composer.phar
-packages.json
-/src/dev
-/vendor/
