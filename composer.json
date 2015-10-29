@@ -1,1 +1,44 @@
-{    "name": "ucsdmath/authentication",    "description": "A basic user authentication class for login.",    "keywords": ["authentication", "ucsdmath"],    "homepage": "https://github.com/UCSDMath",    "type": "library",    "license": "MIT",    "time": "2015-10-12",    "minimum-stability": "dev",    "prefer-stable": true,    "authors": [        {            "name": "Daryl Eisner",            "email": "deisner@ucsd.edu"        }    ],    "support": {        "source": "https://github.com/UCSDMath/Authentication",        "email": "deisner@ucsd.edu"    },    "require": {        "php": ">=5.6.10",        "ucsdmath/database": "1.4.x-dev",        "ucsdmath/functions": "1.4.x-dev",        "ucsdmath/encryption": "1.4.x-dev",        "ucsdmath/persistence": "1.4.x-dev"    },    "require-dev": {        "squizlabs/php_codesniffer": "2.3.*"    },    "autoload": {        "psr-4": {            "UCSDMath\\Authentication\\": "src/Authentication/"        }    },    "suggest": {        "symfony/dependency-injection": "Symfony DependencyInjection Component for fast loading of classes"    },    "extra": {        "branch-alias": {            "dev-master": "1.4.x-dev"        }    }}
+{
+    "name": "ucsdmath/authentication",
+    "description": "A basic user authentication class for login.",
+    "keywords": ["authentication", "ucsdmath"],
+    "homepage": "https://github.com/UCSDMath",
+    "type": "library",
+    "license": "MIT",
+    "time": "2015-10-12",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Daryl Eisner",
+            "email": "deisner@ucsd.edu"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/UCSDMath/Authentication",
+        "email": "deisner@ucsd.edu"
+    },
+    "require": {
+        "php": ">=5.6.10",
+        "ucsdmath/database": "1.4.x-dev",
+        "ucsdmath/functions": "1.4.x-dev",
+        "ucsdmath/encryption": "1.4.x-dev",
+        "ucsdmath/persistence": "1.4.x-dev"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "UCSDMath\\Authentication\\": "src/Authentication/"
+        }
+    },
+    "suggest": {
+        "symfony/dependency-injection": "Symfony DependencyInjection Component for fast loading of classes"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.4.x-dev"
+        }
+    }
+}
