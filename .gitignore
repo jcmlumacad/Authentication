@@ -1,6 +1,1 @@
-.DS_Store
-composer.lock
-composer.phar
-packages.json
-/src/dev
-/vendor/
+.DS_Storecomposer.lockcomposer.pharpackages.json/src/dev/vendor/
