@@ -142,54 +142,40 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Authenticate Shibboleth User.
      *
+     * @notes  Expected ErrorNumber Meaning:
+     *
+     *         -- AUTHENTICATION_PASSED         1
+     *         -- PASSWORD_INCORRECT            2
+     *         -- USERNAME_NOT_FOUND            3
+     *         -- USERNAME_BAD_STRUCTURE        4
+     *         -- PASSWORD_BAD_STRUCTURE        5
+     *         -- ACCOUNT_IS_LOCKED             6
+     *         -- OTHER_PROBLEMS                7
+     *         -- DB_DENIED_ENTRY_USER          8
+     *         -- DB_DENIED_ENTRY_MAINTENANCE   9
+     *         -- INVALID_REQUEST              10
+     *
      * @return bool
      *
      * @api
      */
     public function authenticateShibbolethUser($adusername = null)
     {
-        /**
-         * @notes  Expected ErrorNumber Meaning:
-         *
-         *         -- AUTHENTICATION_PASSED         1
-         *         -- PASSWORD_INCORRECT            2
-         *         -- USERNAME_NOT_FOUND            3
-         *         -- USERNAME_BAD_STRUCTURE        4
-         *         -- PASSWORD_BAD_STRUCTURE        5
-         *         -- ACCOUNT_IS_LOCKED             6
-         *         -- OTHER_PROBLEMS                7
-         *         -- DB_DENIED_ENTRY_USER          8
-         *         -- DB_DENIED_ENTRY_MAINTENANCE   9
-         *         -- INVALID_REQUEST              10
-         */
         $adusername = $adusername === null ? $this->getProperty('adusername'): $adusername;
 
-        $this->validateUsername($adusername)
-            ? null
-            : header(
-                'Location: '.
-                $this->config->getConst('REDIRECT_LOGIN').'index.php?v='.
-                $this->encryption->numHash(4, 'encrypt').';',
-                true,
-                302
-            );
+        if (!$this->validateUsername($adusername)) {
+            relayToRoute($this->config->getConst('REDIRECT_LOGIN').'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
+        }
 
-        $data = $this->dbh->getUserEmailAccount($adusername)
-            ? $this->dbh->getResultDataSet()
-            : trigger_error(187, FATAL);
+        $data = $this->dbh->getUserEmailAccount($adusername)->getResultDataSet();
 
         if (1 === $data['record_count']) {
             $this->setProperty('email', trim($data['email']));
-            $this->setProperty('errorNumber', 1);
-            unset($data);
 
             return true;
         } else {
             /** Database record not found for adusername. */
-            $this->dbh->insertiNetRecordLog(
-                $adusername,
-                '-- Login Error: Email from given adusername not found in database.(ADUSERNAME)'
-            );
+            $this->dbh->insertiNetRecordLog($adusername, '-- Login Error: Email from given adusername not found in database.(ADUSERNAME)');
 
             return false;
         }
@@ -198,7 +184,35 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     // --------------------------------------------------------------------------
 
     /**
+     * Relay to location.
+     *
+     * @param string $destination  A routing location
+     *
+     * @return void
+     */
+    public function relayToRoute($destination)
+    {
+        header('Location: ' . $destination, true, 302);
+        exit('Routing error...AbstractSession::relayToRoute()');
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
      * Authenticate Database User
+     *
+     * @notes  Expected ErrorNumber Meaning:
+     *
+     *         -- AUTHENTICATION_PASSED         1
+     *         -- PASSWORD_INCORRECT            2
+     *         -- USERNAME_NOT_FOUND            3
+     *         -- USERNAME_BAD_STRUCTURE        4
+     *         -- PASSWORD_BAD_STRUCTURE        5
+     *         -- ACCOUNT_IS_LOCKED             6
+     *         -- OTHER_PROBLEMS                7
+     *         -- DB_DENIED_ENTRY_USER          8
+     *         -- DB_DENIED_ENTRY_MAINTENANCE   9
+     *         -- INVALID_REQUEST              10
      *
      * @return bool
      *
@@ -206,24 +220,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function authenticateDatabaseUser($email, $password)
     {
-        /**
-         * @notes  Expected ErrorNumber Meaning:
-         *
-         *         -- AUTHENTICATION_PASSED         1
-         *         -- PASSWORD_INCORRECT            2
-         *         -- USERNAME_NOT_FOUND            3
-         *         -- USERNAME_BAD_STRUCTURE        4
-         *         -- PASSWORD_BAD_STRUCTURE        5
-         *         -- ACCOUNT_IS_LOCKED             6
-         *         -- OTHER_PROBLEMS                7
-         *         -- DB_DENIED_ENTRY_USER          8
-         *         -- DB_DENIED_ENTRY_MAINTENANCE   9
-         *         -- INVALID_REQUEST              10
-         */
-
-        /**
-         * MySQL Database Authentication
-         */
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getResultDataSet();
 
         /**
