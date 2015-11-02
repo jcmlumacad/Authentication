@@ -110,11 +110,6 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
                 return false;
             }
 
-            /**
-             * Should never get here!
-             */
-            trigger_error(166, FATAL);
-
         } else {
             /**
              * System Type Incorrect
