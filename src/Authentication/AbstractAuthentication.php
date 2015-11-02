@@ -11,6 +11,7 @@
 
 namespace UCSDMath\Authentication;
 
+use UCSDMath\Configuration\Config;
 use UCSDMath\Database\DatabaseInterface;
 use UCSDMath\Functions\ServiceFunctions;
 use UCSDMath\Encryption\EncryptionInterface;
@@ -164,7 +165,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $adusername = $adusername === null ? $this->getProperty('adusername'): $adusername;
 
         if (!$this->validateUsername($adusername)) {
-            relayToRoute($this->config->getConst('REDIRECT_LOGIN').'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
+            relayToRoute(Config::REDIRECT_LOGIN.'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
         }
 
         $data = $this->dbh->getUserEmailAccount($adusername)->getResultDataSet();
@@ -193,7 +194,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     public function relayToRoute($destination)
     {
         header('Location: ' . $destination, true, 302);
-        exit('Routing error...AbstractSession::relayToRoute()');
     }
 
     // --------------------------------------------------------------------------
@@ -232,14 +232,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
              * Username not found in database
              */
             $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Username not found in database.');
-
-            return false;
-
-        } elseif (true === $this->getUserFailedLoginAttempts($this->getProperty('username'))) {
-            /**
-             * Check failed login attempts; 2 hour lockout might apply
-             */
-            $this->dbh->insertiNetRecordLog($this->getProperty('username'),'-- Lockout: Account locked for 2 hrs; emailed user options.');
 
             return false;
 
