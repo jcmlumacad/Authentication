@@ -482,7 +482,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
          * Check Arguments
          */
         if (empty($userName)
-            || ! is_string($userName)) {
+            || !is_string($userName)) {
                 $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username not provided or bad parameter.');
 
                 return false;
