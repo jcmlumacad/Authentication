@@ -175,7 +175,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
 
             return true;
         } else {
-            /** Database record not found for adusername. */
+            /* Database record not found for adusername. */
             $this->dbh->insertiNetRecordLog($adusername, '-- Login Error: Email from given adusername not found in database.(ADUSERNAME)');
 
             return false;
