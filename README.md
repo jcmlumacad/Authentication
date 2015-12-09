@@ -5,7 +5,7 @@
 [![Total Downloads](https://poser.pugx.org/ucsdmath/Authentication/downloads)](https://packagist.org/packages/ucsdmath/Authentication)
 [![Latest Unstable Version](https://poser.pugx.org/ucsdmath/Authentication/v/unstable)](https://packagist.org/packages/ucsdmath/Authentication)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ucsdmath/Authentication/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Authentication/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Authentication/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Authentication/code-structure/master)
+[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Authentication/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Authentication/build-status/master)
 
 Authentication is a testing and development library only. This is not to be used in a production.
 
