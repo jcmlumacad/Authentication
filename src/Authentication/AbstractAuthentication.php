@@ -27,27 +27,27 @@ use UCSDMath\DependencyInjection\ServiceRequestContainer;
  * Users in the system are provided with a Passport that defines them and their level of access
  * to the applications.
  *
- * Method list:
+ * Method list: (+) @api, (-) protected or private visibility.
  *
- * @method AuthenticationInterface __construct();
- * @method void __destruct();
- * @method string getEmail();
- * @method string getUsername();
- * @method string getPassword();
- * @method AuthenticationInterface unsetUsername();
- * @method AuthenticationInterface unsetPassword();
- * @method string getsystemType();
- * @method AuthenticationInterface setEmail($email);
- * @method string getErrorReport();
- * @method string getErrorNumber();
- * @method AuthenticationInterface setPassword($password);
- * @method AuthenticationInterface setUsername($username);
- * @method AuthenticationInterface setErrorNumber($num = null);
- * @method boolean validatePassword($password = null);
- * @method boolean validateUsername($userName = null);
- * @method boolean authenticateDatabaseUser($email, $password);
- * @method boolean authenticateShibbolethUser($adusername = null);
- * @method boolean processPassword($email = null, $password = null);
+ * (+) AuthenticationInterface __construct();
+ * (+) void __destruct();
+ * (+) string getEmail();
+ * (+) string getUsername();
+ * (+) string getPassword();
+ * (+) AuthenticationInterface unsetUsername();
+ * (+) AuthenticationInterface unsetPassword();
+ * (+) string getsystemType();
+ * (+) AuthenticationInterface setEmail($email);
+ * (+) string getErrorReport();
+ * (+) string getErrorNumber();
+ * (+) AuthenticationInterface setPassword($password);
+ * (+) AuthenticationInterface setUsername($username);
+ * (+) AuthenticationInterface setErrorNumber($num = null);
+ * (+) boolean validatePassword($password = null);
+ * (+) boolean validateUsername($userName = null);
+ * (+) boolean authenticateDatabaseUser($email, $password);
+ * (+) boolean authenticateShibbolethUser($adusername = null);
+ * (+) boolean processPassword($email = null, $password = null);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
@@ -636,28 +636,26 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     // --------------------------------------------------------------------------
 
     /**
-     * Method implementations inserted.
+     * Method implementations inserted:
      *
-     * The notation below illustrates visibility: (+) @api, (-) protected or private.
-     *
-     * @method all();
-     * @method init();
-     * @method get($key);
-     * @method has($key);
-     * @method version();
-     * @method getClassName();
-     * @method getConst($key);
-     * @method set($key, $value);
-     * @method isString($str);
-     * @method getInstanceCount();
-     * @method getClassInterfaces();
-     * @method __call($callback, $parameters);
-     * @method getProperty($name, $key = null);
-     * @method doesFunctionExist($functionName);
-     * @method isStringKey($str, array $keys);
-     * @method throwExceptionError(array $error);
-     * @method setProperty($name, $value, $key = null);
-     * @method throwInvalidArgumentExceptionError(array $error);
+     * (+) all();
+     * (+) init();
+     * (+) get($key);
+     * (+) has($key);
+     * (+) version();
+     * (+) getClassName();
+     * (+) getConst($key);
+     * (+) set($key, $value);
+     * (+) isString($str);
+     * (+) getInstanceCount();
+     * (+) getClassInterfaces();
+     * (+) __call($callback, $parameters);
+     * (+) getProperty($name, $key = null);
+     * (+) doesFunctionExist($functionName);
+     * (+) isStringKey($str, array $keys);
+     * (+) throwExceptionError(array $error);
+     * (+) setProperty($name, $value, $key = null);
+     * (+) throwInvalidArgumentExceptionError(array $error);
      */
     use ServiceFunctions;
 }
