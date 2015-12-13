@@ -14,7 +14,7 @@ You can install the class ```Authentication``` with Composer and Packagist by ad
 
 ```
 "require": {
-    "php": ">=5.6",
+    "php": ">=5.6.10",
     "ucsdmath/authentication": "dev-master"
 },
 ```
