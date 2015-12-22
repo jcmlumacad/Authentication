@@ -19,7 +19,7 @@
         "email": "deisner@ucsd.edu"
     },
     "require": {
-        "php": ">=5.6.10",
+        "php": ">=7.0.0",
         "ucsdmath/database": "1.5.x-dev",
         "ucsdmath/functions": "1.5.x-dev",
         "ucsdmath/encryption": "1.5.x-dev",
