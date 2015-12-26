@@ -31,7 +31,7 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
      *
      * @api
      */
-    const VERSION = '1.5.0';
+    const VERSION = '1.6.0';
 
     // --------------------------------------------------------------------------
 

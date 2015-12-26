@@ -60,7 +60,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @api
      */
-    const VERSION = '1.5.0';
+    const VERSION = '1.6.0';
 
     // --------------------------------------------------------------------------
 
@@ -285,7 +285,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
             return false;
         }
 
-        $salt       = hash(static::DEFAULT_HASH, mb_strtoupper($data['uuid']), 'utf-8');
+        $salt       = hash(static::DEFAULT_HASH, mb_strtoupper($data['uuid']), 'UTF-8');
         $pass       = hash(static::DEFAULT_HASH, $email . $this->getProperty('randomPasswordSeed') . $password);
         $passwdHash = hash(static::DEFAULT_HASH, $salt . $pass . $salt);
 
@@ -497,7 +497,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                  * Remove all illegal characters from Email string and compare
                  */
                 $userNameCheck = filter_var(trim($userName), FILTER_SANITIZE_EMAIL);
-                $userNameCheck = mb_substr(trim($userNameCheck), 0, 60, 'utf-8');
+                $userNameCheck = mb_substr(trim($userNameCheck), 0, 60, 'UTF-8');
 
                 if (trim($userName) !== $userNameCheck) {
                     /**
@@ -542,7 +542,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
              */
             if ((bool) preg_match(
                 '/^[a-z][a-z\d_.-]*$/i',
-                trim(mb_substr(trim(strtolower($userName)), 0, 64, 'utf-8'))
+                trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8'))
             )) {
                 /**
                  * Valid Username -> OK
