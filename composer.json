@@ -2,17 +2,14 @@
     "name": "ucsdmath/authentication",
     "description": "A basic user authentication class for login.",
     "keywords": ["authentication", "ucsdmath"],
-    "homepage": "https://github.com/UCSDMath",
+    "homepage": "https://github.com/ucsdmath",
     "type": "library",
     "license": "MIT",
     "time": "2015-12-05",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "authors": [
-        {
-            "name": "Daryl Eisner",
-            "email": "deisner@ucsd.edu"
-        }
+        {"name": "Daryl Eisner", "email": "deisner@ucsd.edu"}
     ],
     "support": {
         "source": "https://github.com/UCSDMath/Authentication",
