@@ -1,7 +1,7 @@
 {
     "name": "ucsdmath/authentication",
     "description": "A basic user authentication class for login.",
-    "keywords": ["authentication", "ucsdmath"],
+    "keywords": ["authentication", "ucsdmath", "component"],
     "homepage": "https://github.com/ucsdmath",
     "type": "library",
     "license": "MIT",
