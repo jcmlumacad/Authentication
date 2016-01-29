@@ -301,9 +301,9 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * Unset a password.
      * provides unset for $password
      *
-     * @return null
+     * @return AuthenticationInterface
      */
-    public function unsetPassword()
+    public function unsetPassword(): self
     {
         unset($this->{'password'});
 
@@ -577,7 +577,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface
      */
-    public function setPassword($password)
+    public function setPassword($password): self
     {
         $this->setProperty('password', trim($password));
 
@@ -596,7 +596,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface
      */
-    public function setUsername($username)
+    public function setUsername($username): self
     {
         $this->setProperty('username', strtolower(trim($username)));
 
@@ -613,7 +613,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface
      */
-    public function setEmail($email)
+    public function setEmail($email): self
     {
         $this->setProperty('email', strtolower(trim($email)));
 
@@ -627,7 +627,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return null
      */
-    public function unsetUsername()
+    public function unsetUsername(): self
     {
         unset($this->{'username'});
 
