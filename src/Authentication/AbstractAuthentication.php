@@ -161,7 +161,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @api
      */
-    public function authenticateShibbolethUser($adusername = null)
+    public function authenticateShibbolethUser($adusername = null): bool
     {
         $adusername = $adusername === null ? $this->getProperty('adusername'): $adusername;
 
@@ -219,7 +219,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @api
      */
-    public function authenticateDatabaseUser($email, $password)
+    public function authenticateDatabaseUser($email, $password): bool
     {
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getResultDataSet();
 
@@ -277,7 +277,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return bool
      */
-    private function processPassword($email = null, $password = null)
+    private function processPassword($email = null, $password = null): bool
     {
         $data = $this->dbh->getUserPassword($email)->getResultDataSet();
 
@@ -303,7 +303,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface
      */
-    public function unsetPassword(): self
+    public function unsetPassword(): AuthenticationInterface
     {
         unset($this->{'password'});
 
@@ -317,7 +317,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->{'username'};
     }
@@ -329,7 +329,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->{'email'};
     }
@@ -341,7 +341,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->{'password'};
     }
@@ -353,7 +353,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return string
      */
-    public function getsystemType()
+    public function getsystemType(): string
     {
         return $this->{'systemType'};
     }
@@ -365,7 +365,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return string
      */
-    public function getErrorReport()
+    public function getErrorReport(): string
     {
         return $this->getProperty('errorReport');
     }
@@ -377,7 +377,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return integer
      */
-    public function getErrorNumber()
+    public function getErrorNumber(): int
     {
         return (int) $this->getProperty('errorNumber');
     }
@@ -387,11 +387,13 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Set a error number.
      *
-     * @return integer
+     * @return AuthenticationInterface
      */
-    private function setErrorNumber($num = null)
+    private function setErrorNumber($num = null): AuthenticationInterface
     {
         $this->setProperty('errorNumber', (int) $num);
+
+        return $this;
     }
 
     // --------------------------------------------------------------------------
@@ -405,7 +407,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return string
      */
-    public function getUserFailedLoginAttempts($email)
+    public function getUserFailedLoginAttempts($email): string
     {
         $hours = 3600 * (int) $this->getProperty('hours_unlock_login');
 
@@ -434,7 +436,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return bool
      */
-    public function validatePassword($password = null)
+    public function validatePassword($password = null): bool
     {
         if ('DATABASE' === $this->getProperty('systemType')) {
             if ((bool) preg_match('/^[a-fA-F0-9]{128}$/', trim($password))
@@ -477,7 +479,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return bool
      */
-    public function validateUsername($userName = null)
+    public function validateUsername($userName = null): bool
     {
         /**
          * Check Arguments
@@ -577,7 +579,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface
      */
-    public function setPassword($password): self
+    public function setPassword($password): AuthenticationInterface
     {
         $this->setProperty('password', trim($password));
 
@@ -596,7 +598,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface
      */
-    public function setUsername($username): self
+    public function setUsername($username): AuthenticationInterface
     {
         $this->setProperty('username', strtolower(trim($username)));
 
@@ -613,7 +615,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface
      */
-    public function setEmail($email): self
+    public function setEmail($email): AuthenticationInterface
     {
         $this->setProperty('email', strtolower(trim($email)));
 
@@ -625,9 +627,9 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Unset the username.
      *
-     * @return null
+     * @return AuthenticationInterface
      */
-    public function unsetUsername(): self
+    public function unsetUsername(): AuthenticationInterface
     {
         unset($this->{'username'});
 
