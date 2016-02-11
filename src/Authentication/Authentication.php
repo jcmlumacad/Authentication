@@ -45,8 +45,8 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
     /**
      * Constructor.
      *
-     * @param  DatabaseInterface    $dbh         A DatabaseInterface instance
-     * @param  EncryptionInterface  $encryption  A EncryptionInterface instance
+     * @param DatabaseInterface    $dbh         A DatabaseInterface
+     * @param EncryptionInterface  $encryption  A EncryptionInterface
      *
      * @api
      */

@@ -68,8 +68,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Properties.
      *
-     * @var    DatabaseInterface       $dbh                 A DatabaseInterface instance
-     * @var    EncryptionInterface     $encryption          A EncryptionInterface instance
+     * @var    DatabaseInterface       $dbh                 A DatabaseInterface
+     * @var    EncryptionInterface     $encryption          A EncryptionInterface
      * @var    string|null             $email               A primary user email
      * @var    string|null             $dbSalt              A database provided salt
      * @var    string|null             $username            A user provided username
@@ -81,11 +81,11 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * @var    integer|null            $errorNumber         A returning error number
      * @var    string|null             $errorReport         A error feedback/text
      * @var    bool|null               $allowedAccess       A database provided access privlages
-     * @var    integer                 $keyStretching       A time delay for password checking
+     * @var    int                     $keyStretching       A time delay for password checking
      * @var    string|null             $randomPasswordSeed  A seed for generation of user password hashes
      * @var    array                   $storageRegister     A set of validation stored data elements
-     * @static AuthenticationInterface $instance            A AuthenticationInterface instance
-     * @static integer                 $objectCount         A AuthenticationInterface instance count
+     * @static AuthenticationInterface $instance            A AuthenticationInterface
+     * @static int                     $objectCount         A AuthenticationInterface count
      */
     protected $dbh                = null;
     protected $encryption         = null;
@@ -111,8 +111,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Constructor.
      *
-     * @param  DatabaseInterface    $dbh         A DatabaseInterface instance
-     * @param  EncryptionInterface  $encryption  A EncryptionInterface instance
+     * @param DatabaseInterface    $dbh         A DatabaseInterface
+     * @param EncryptionInterface  $encryption  A EncryptionInterface
      *
      * @api
      */
@@ -200,7 +200,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     // --------------------------------------------------------------------------
 
     /**
-     * Authenticate Database User
+     * Authenticate Database User.
      *
      * @notes  Expected ErrorNumber Meaning:
      *
@@ -224,13 +224,13 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getResultDataSet();
 
         /**
-         * Username is an email address
+         * Username is an email address.
          */
         $this->setEmail($this->getProperty('username'));
 
         if (1 !== $data['record_count']) {
             /**
-             * Username not found in database
+             * Username not found in database.
              */
             $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Username not found in database.');
 
@@ -238,7 +238,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
 
         } else {
             /**
-             * Apply key stretching
+             * Apply key stretching.
              */
             $salt = hash(static::DEFAULT_HASH, $data['uuid']);
 
@@ -248,7 +248,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
 
             if ((trim($data['passwd_db']) === trim($password_hashed))) {
                 /**
-                 * Authentication Passed -> OK
+                 * Authentication Passed -> OK.
                  */
                 $this->dbh->insertiNetRecordLog($this->getProperty('username'),'-- Login OK: Authention Granted Access.');
 
@@ -256,7 +256,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
 
             } else {
                 /**
-                 * Password is Incorrect (Failed Authentication)
+                 * Password is Incorrect (Failed Authentication).
                  */
                 $this->dbh->insertiNetRecordLog($this->getProperty('username'),'-- Login Error: password incorrect.');
                 $this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'),'-- Login Error: password incorrect.');
@@ -272,8 +272,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * This method collects and stores an SHA512 Hash Authentication string
      * for database authentication.
      *
-     * @param  string $email     A users email
-     * @param  string $password  A users provided password
+     * @param string $email     A users email
+     * @param string $password  A users provided password
      *
      * @return bool
      */
@@ -375,7 +375,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Get the error number.
      *
-     * @return integer
+     * @return int
      */
     public function getErrorNumber(): int
     {
@@ -455,7 +455,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
 
         } else {
             /**
-             * System Type Incorrect
+             * System Type Incorrect.
              */
             trigger_error(166, FATAL);
 
@@ -482,7 +482,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     public function validateUsername($userName = null): bool
     {
         /**
-         * Check Arguments
+         * Check Arguments.
          */
         if (empty($userName)
             || !is_string($userName)) {
@@ -497,14 +497,14 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 && mb_strlen(trim($userName), 'UTF-8') > 7
             ) {
                 /**
-                 * Remove all illegal characters from Email string and compare
+                 * Remove all illegal characters from Email string and compare.
                  */
                 $userNameCheck = filter_var(trim($userName), FILTER_SANITIZE_EMAIL);
                 $userNameCheck = mb_substr(trim($userNameCheck), 0, 60, 'UTF-8');
 
                 if (trim($userName) !== $userNameCheck) {
                     /**
-                     * Username/Email incorrectly structured
+                     * Username/Email incorrectly structured.
                      */
                     $this->dbh->insertiNetRecordLog($userName,'-- Login Error: Username problems during FILTER_SANITIZE_EMAIL.');
 
@@ -512,7 +512,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 }
 
                 /**
-                 * Ensure our DNS record exists for the domain
+                 * Ensure our DNS record exists for the domain.
                  */
                 list($username, $domain) = explode('@', $userName);
 
@@ -520,7 +520,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
 
             } else {
                 /**
-                 * Invalid Email Address
+                 * Invalid Email Address.
                  */
                 $this->dbh->insertiNetRecordLog($userName,'-- Login Error: Username did not validate.');
 
@@ -548,13 +548,13 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8'))
             )) {
                 /**
-                 * Valid Username -> OK
+                 * Valid Username -> OK.
                  */
                 return true;
 
             } else {
                 /**
-                 * Invalid Username -> Bad
+                 * Invalid Username -> Bad.
                  */
                 $this->dbh->insertiNetRecordLog(
                     $userName,
@@ -575,7 +575,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * Set user password.
      *
      * @throws \InvalidArgumentException on non string value for $password
-     * @param  string $password The user provided password
+     * @param string $password The user provided password
      *
      * @return AuthenticationInterface
      */
@@ -594,7 +594,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * Stores username in lowercase
      *
      * @throws \InvalidArgumentException on non string value for $username
-     * @param  string  $username  The user provided username
+     * @param string  $username  The user provided username
      *
      * @return AuthenticationInterface
      */
@@ -611,7 +611,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * Set email property.
      *
      * @throws throwInvalidArgumentExceptionError on non string value for $email
-     * @param  string  $email  A user email
+     * @param string  $email  A user email
      *
      * @return AuthenticationInterface
      */

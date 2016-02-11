@@ -86,7 +86,7 @@ interface AuthenticationInterface
      * Set email property.
      *
      * @throws throwInvalidArgumentExceptionError on non string value for $email
-     * @param  string  $email  A user email
+     * @param string  $email  A user email
      *
      * @return AuthenticationInterface
      */
@@ -106,7 +106,7 @@ interface AuthenticationInterface
     /**
      * Get the error number.
      *
-     * @return integer
+     * @return int
      */
     public function getErrorNumber(): int;
 
@@ -116,7 +116,7 @@ interface AuthenticationInterface
      * Set user password.
      *
      * @throws \InvalidArgumentException on non string value for $password
-     * @param  string $password The user provided password
+     * @param string $password The user provided password
      *
      * @return AuthenticationInterface
      */
@@ -130,7 +130,7 @@ interface AuthenticationInterface
      * Stores username in lowercase
      *
      * @throws \InvalidArgumentException on non string value for $username
-     * @param  string  $username  The user provided username
+     * @param string  $username  The user provided username
      *
      * @return AuthenticationInterface
      */
@@ -177,7 +177,7 @@ interface AuthenticationInterface
     // --------------------------------------------------------------------------
 
     /**
-     * Authenticate Database User
+     * Authenticate Database User.
      *
      * @notes  Expected ErrorNumber Meaning:
      *
