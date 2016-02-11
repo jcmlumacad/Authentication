@@ -221,4 +221,6 @@ interface AuthenticationInterface
      * @api
      */
     public function authenticateShibbolethUser($adusername = null): bool;
+
+    // --------------------------------------------------------------------------
 }

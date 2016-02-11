@@ -661,4 +661,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * (+) throwInvalidArgumentExceptionError(array $error);
      */
     use ServiceFunctions;
+
+    // --------------------------------------------------------------------------
 }
