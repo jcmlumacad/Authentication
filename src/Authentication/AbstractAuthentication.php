@@ -250,7 +250,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 /**
                  * Authentication Passed -> OK.
                  */
-                $this->dbh->insertiNetRecordLog($this->getProperty('username'),'-- Login OK: Authention Granted Access.');
+                $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login OK: Authention Granted Access.');
 
                 return true;
 
@@ -258,8 +258,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 /**
                  * Password is Incorrect (Failed Authentication).
                  */
-                $this->dbh->insertiNetRecordLog($this->getProperty('username'),'-- Login Error: password incorrect.');
-                $this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'),'-- Login Error: password incorrect.');
+                $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: password incorrect.');
+                $this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'), '-- Login Error: password incorrect.');
 
                 return false;
             }
@@ -282,7 +282,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $data = $this->dbh->getUserPassword($email)->getResultDataSet();
 
         if (1 !== $data['record_count']) {
-            $this->dbh->insertiNetRecordLog($email,'-- Process Error: Email not found in database. Authentication::_processPassword();');
+            $this->dbh->insertiNetRecordLog($email, '-- Process Error: Email not found in database. Authentication::_processPassword();');
             return false;
         }
 
@@ -506,7 +506,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                     /**
                      * Username/Email incorrectly structured.
                      */
-                    $this->dbh->insertiNetRecordLog($userName,'-- Login Error: Username problems during FILTER_SANITIZE_EMAIL.');
+                    $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username problems during FILTER_SANITIZE_EMAIL.');
 
                     return false;
                 }
@@ -522,7 +522,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 /**
                  * Invalid Email Address.
                  */
-                $this->dbh->insertiNetRecordLog($userName,'-- Login Error: Username did not validate.');
+                $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username did not validate.');
 
                 return false;
             }

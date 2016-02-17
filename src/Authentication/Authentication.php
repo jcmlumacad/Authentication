@@ -50,7 +50,8 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
      *
      * @api
      */
-    public function __construct(DatabaseInterface $dbh, EncryptionInterface $encryption) {
+    public function __construct(DatabaseInterface $dbh, EncryptionInterface $encryption)
+    {
         parent::__construct($dbh, $encryption);
     }
 
