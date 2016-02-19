@@ -22,7 +22,7 @@ You can install the class ```Authentication``` with Composer and Packagist by ad
 
 ```
 "require": {
-    "php": ">=7.0.0",
+    "php": "^7.0",
     "ucsdmath/authentication": "dev-master"
 },
 ```

@@ -90,7 +90,7 @@ interface AuthenticationInterface
      *
      * @return AuthenticationInterface
      */
-    public function setEmail($email): AuthenticationInterface;
+    public function setEmail(string $email): AuthenticationInterface;
 
     // --------------------------------------------------------------------------
 
@@ -120,7 +120,7 @@ interface AuthenticationInterface
      *
      * @return AuthenticationInterface
      */
-    public function setPassword($password): AuthenticationInterface;
+    public function setPassword(string $password): AuthenticationInterface;
 
     // --------------------------------------------------------------------------
 
@@ -134,7 +134,7 @@ interface AuthenticationInterface
      *
      * @return AuthenticationInterface
      */
-    public function setUsername($username): AuthenticationInterface;
+    public function setUsername(string $username): AuthenticationInterface;
 
     // --------------------------------------------------------------------------
 
@@ -154,7 +154,7 @@ interface AuthenticationInterface
      *
      * @return bool
      */
-    public function validatePassword($password = null): bool;
+    public function validatePassword(string $password = null): bool;
 
     // --------------------------------------------------------------------------
 
@@ -172,7 +172,7 @@ interface AuthenticationInterface
      *
      * @return bool
      */
-    public function validateUsername($userName = null): bool;
+    public function validateUsername(string $userName = null): bool;
 
     // --------------------------------------------------------------------------
 
@@ -196,7 +196,7 @@ interface AuthenticationInterface
      *
      * @api
      */
-    public function authenticateDatabaseUser($email, $password): bool;
+    public function authenticateDatabaseUser(string $email, string $password): bool;
 
     // --------------------------------------------------------------------------
 
@@ -220,7 +220,7 @@ interface AuthenticationInterface
      *
      * @api
      */
-    public function authenticateShibbolethUser($adusername = null): bool;
+    public function authenticateShibbolethUser(string $adusername = null): bool;
 
     // --------------------------------------------------------------------------
 }
