@@ -11,10 +11,10 @@
 [![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Authentication/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Authentication/build-status/master)
 [![Latest Stable Version](https://poser.pugx.org/ucsdmath/Authentication/v/stable)](https://packagist.org/packages/ucsdmath/Authentication)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg?style=flat)](https://php.net/)
-[![License](https://poser.pugx.org/ucsdmath/Authentication/license)](https://packagist.org/packages/ucsdmath/Authentication)
 [![Total Downloads](https://poser.pugx.org/ucsdmath/Authentication/downloads)](https://packagist.org/packages/ucsdmath/Authentication)
 [![Latest Unstable Version](https://poser.pugx.org/ucsdmath/Authentication/v/unstable)](https://packagist.org/packages/ucsdmath/Authentication)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ucsdmath/Authentication/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Authentication/?branch=master)
+[![License](https://poser.pugx.org/ucsdmath/Authentication/license)](https://packagist.org/packages/ucsdmath/Authentication)
 
 Authentication is a testing and development library only. This is not to be used in a production.
 
