@@ -17,8 +17,7 @@
         "php": "^7.0",
         "ucsdmath/database": "1.7.x-dev",
         "ucsdmath/functions": "1.7.x-dev",
-        "ucsdmath/encryption": "1.7.x-dev",
-        "ucsdmath/persistence": "1.7.x-dev"
+        "ucsdmath/encryption": "1.7.x-dev"
     },
     "require-dev": {
         "mockery/mockery": "0.9.4",
