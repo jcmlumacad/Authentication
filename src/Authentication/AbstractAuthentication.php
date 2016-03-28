@@ -17,7 +17,6 @@ use UCSDMath\Database\DatabaseInterface;
 use UCSDMath\Functions\ServiceFunctions;
 use UCSDMath\Encryption\EncryptionInterface;
 use UCSDMath\Functions\ServiceFunctionsInterface;
-use UCSDMath\DependencyInjection\ServiceRequestContainer;
 
 /**
  * AbstractAuthentication provides an abstract base class implementation of {@link AuthenticationInterface}.
@@ -163,10 +162,10 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function authenticateShibbolethUser(string $adusername = null): bool
     {
-        $adusername = $adusername === null ? $this->getProperty('adusername'): $adusername;
+        $adusername = $adusername === null ? $this->getProperty('adusername') : $adusername;
 
         if (!$this->validateUsername($adusername)) {
-            relayToRoute(Config::REDIRECT_LOGIN.'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
+            relayToRoute(Config::REDIRECT_LOGIN . 'index.php?v=' . $this->encryption->numHash(4, 'encrypt') . ';');
         }
 
         $data = $this->dbh->getUserEmailAccount($adusername)->getResultDataSet();
@@ -290,7 +289,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $pass       = hash(static::DEFAULT_HASH, $email . $this->getProperty('randomPasswordSeed') . $password);
         $passwdHash = hash(static::DEFAULT_HASH, $salt . $pass . $salt);
 
-        $this->dbh->updateUserPassword($email, $passwdHash) ? : trigger_error(197, FATAL);
+        $this->dbh->updateUserPassword($email, $passwdHash) ?: trigger_error(197, FATAL);
 
         return true;
     }
@@ -516,7 +515,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                  */
                 list($username, $domain) = explode('@', $userName);
 
-                return checkdnsrr($domain, 'MX') ? : false;
+                return checkdnsrr($domain, 'MX') ?: false;
 
             } else {
                 /**
