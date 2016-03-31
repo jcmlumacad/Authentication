@@ -222,24 +222,19 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     {
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getResultDataSet();
 
-        /**
-         * Username is an email address.
-         */
+        /* Username is an email address */
         $this->setEmail($this->getProperty('username'));
 
         if (1 !== $data['record_count']) {
-            /**
-             * Username not found in database.
-             */
+            /* Username not found in database */
             $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Username not found in database.');
 
             return false;
 
         } else {
-            /**
-             * Apply key stretching.
-             */
+            /* Apply key stretching */
             $salt = hash(static::DEFAULT_HASH, $data['uuid']);
+            $password_hashed = null;
 
             for ($i = 0; $i < (int) $this->getProperty('keyStretching'); $i++) {
                 $password_hashed = hash(static::DEFAULT_HASH, $salt . $this->getProperty('password') . $salt);
@@ -483,50 +478,13 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         /**
          * Check Arguments.
          */
-        if (empty($userName)
-            || !is_string($userName)) {
+        if (empty($userName) || !is_string($userName)) {
                 $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username not provided or bad parameter.');
 
                 return false;
         }
 
-        if ('DATABASE' === $this->getProperty('systemType')) {
-            if (filter_var(trim($userName), FILTER_VALIDATE_EMAIL) !== false
-                && mb_strlen(trim($userName), 'UTF-8') < 61
-                && mb_strlen(trim($userName), 'UTF-8') > 7
-            ) {
-                /**
-                 * Remove all illegal characters from Email string and compare.
-                 */
-                $userNameCheck = filter_var(trim($userName), FILTER_SANITIZE_EMAIL);
-                $userNameCheck = mb_substr(trim($userNameCheck), 0, 60, 'UTF-8');
-
-                if (trim($userName) !== $userNameCheck) {
-                    /**
-                     * Username/Email incorrectly structured.
-                     */
-                    $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username problems during FILTER_SANITIZE_EMAIL.');
-
-                    return false;
-                }
-
-                /**
-                 * Ensure our DNS record exists for the domain.
-                 */
-                list($username, $domain) = explode('@', $userName);
-
-                return checkdnsrr($domain, 'MX') ?: false;
-
-            } else {
-                /**
-                 * Invalid Email Address.
-                 */
-                $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username did not validate.');
-
-                return false;
-            }
-
-        } elseif ('SHIBBOLETH' === $this->getProperty('systemType')) {
+        if ('SHIBBOLETH' === $this->getProperty('systemType')) {
             /**
              *    /^[a-z\d_.-]{2,7}$/i
              *    ||||  |   |||    |||
@@ -542,19 +500,12 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
              *    |^ : beginning of text
              *    / : regex start
              */
-            if ((bool) preg_match(
-                '/^[a-z][a-z\d_.-]*$/i',
-                trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8'))
-            )) {
-                /**
-                 * Valid Username -> OK.
-                 */
+            if ((bool) preg_match('/^[a-z][a-z\d_.-]*$/i', trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8')))) {
+                /* Valid Username -> OK */
                 return true;
 
             } else {
-                /**
-                 * Invalid Username -> Bad.
-                 */
+                /* Invalid Username -> Bad */
                 $this->dbh->insertiNetRecordLog(
                     $userName,
                     '-- Login Error: Username did not meet login requirements for AD Username.'
