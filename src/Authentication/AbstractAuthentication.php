@@ -222,8 +222,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     public function authenticateDatabaseUser(string $email, string $password): bool
     {
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getResultDataSet();
-
-        /* Username is an email address */
         $this->setEmail($this->getProperty('username'));
 
         if (1 !== $data['record_count']) {
@@ -242,17 +240,13 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
             }
 
             if ((trim($data['passwd_db']) === trim($password_hashed))) {
-                /**
-                 * Authentication Passed -> OK.
-                 */
+                /* Authentication Passed */
                 $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login OK: Authention Granted Access.');
 
                 return true;
 
             } else {
-                /**
-                 * Password is Incorrect (Failed Authentication).
-                 */
+                /* Password is Incorrect (Failed Authentication) */
                 $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: password incorrect.');
                 $this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'), '-- Login Error: password incorrect.');
 
@@ -433,29 +427,13 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function validatePassword(string $password = null): bool
     {
-        if ('DATABASE' === $this->getProperty('systemType')) {
-            if ((bool) preg_match('/^[a-fA-F0-9]{128}$/', trim($password))
-                && 128 === mb_strlen(trim($password), 'UTF-8')
-            ) {
-                return true;
-
-            } else {
-                $this->dbh->insertiNetRecordLog(
-                    $this->getProperty('username'),
-                    '-- Login Error: Password is badly structured or not provided.'
-                );
-
-                return false;
-            }
-
-        } else {
-            /**
-             * System Type Incorrect.
-             */
-            trigger_error(166, FATAL);
+        if (! (bool) (preg_match('/^[a-fA-F0-9]{128}$/', trim($password)) && 128 === mb_strlen(trim($password), 'UTF-8'))) {
+            $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Password is badly structured or not provided.');
 
             return false;
         }
+
+        return true;
     }
 
     // --------------------------------------------------------------------------
