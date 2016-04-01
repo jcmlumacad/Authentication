@@ -476,7 +476,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function validateUsername(string $userName = null): bool
     {
-        if (null === $userName)) {
+        if (null === $userName) {
             $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username not provided or bad parameter.');
 
             return false;
