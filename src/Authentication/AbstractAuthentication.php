@@ -215,26 +215,17 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $this->setEmail($this->getProperty('username'));
 
         if (1 === $data['record_count']) {
-
-            /* Apply key stretching */
             $password_hashed = $this->applyKeyStretching($data);
-
             if ((trim($data['passwd_db']) === trim($password_hashed))) {
-                /* Authentication Passed */
                 $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login OK: Authention Granted Access.');
 
                 return true;
-
-            } else {
-                /* Password is Incorrect (Failed Authentication) */
-                $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: password incorrect.');
-                $this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'), '-- Login Error: password incorrect.');
-
-                return false;
             }
+            $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: password incorrect.');
+            $this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'), '-- Login Error: password incorrect.');
 
+            return false;
         } else {
-            /* Username not found in database */
             $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Username not found in database.');
 
             return false;
