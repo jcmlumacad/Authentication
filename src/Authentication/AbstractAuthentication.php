@@ -476,48 +476,19 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function validateUsername(string $userName = null): bool
     {
-        /**
-         * Check Arguments.
-         */
-        if (empty($userName) || !is_string($userName)) {
-                $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username not provided or bad parameter.');
+        if (null === $userName)) {
+            $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username not provided or bad parameter.');
 
-                return false;
-        }
-
-        if ('SHIBBOLETH' === $this->getProperty('systemType')) {
-            /**
-             *    /^[a-z\d_.-]{2,7}$/i
-             *    ||||  |   |||    |||
-             *    ||||  |   |||    ||i : case insensitive
-             *    ||||  |   |||    |/ : end of regex
-             *    ||||  |   |||    $ : end of text
-             *    ||||  |   ||{2,7} : repeated 2 to 20 times
-             *    ||||  |   |] : end character group
-             *    ||||  | _ : underscore, period, dash
-             *    ||||  \d : any digit
-             *    |||a-z: 'a' through 'z'
-             *    ||[ : start character group
-             *    |^ : beginning of text
-             *    / : regex start
-             */
-            if ((bool) preg_match('/^[a-z][a-z\d_.-]*$/i', trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8')))) {
-                /* Valid Username -> OK */
-                return true;
-
-            } else {
-                /* Invalid Username -> Bad */
-                $this->dbh->insertiNetRecordLog(
-                    $userName,
-                    '-- Login Error: Username did not meet login requirements for AD Username.'
-                );
-
-                return false;
-            }
-
-        } else {
             return false;
         }
+
+        if (! (bool) preg_match('/^[a-z][a-z\d_.-]*$/i', trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8')))) {
+            $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username did not meet login requirements for AD Username.');
+
+            return false;
+        }
+
+        return true;
     }
 
     // --------------------------------------------------------------------------
