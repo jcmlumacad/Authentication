@@ -202,18 +202,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Authenticate Database User.
      *
-     * @notes  Expected ErrorNumber Meaning:
-     *
-     *         -- AUTHENTICATION_PASSED         1
-     *         -- PASSWORD_INCORRECT            2
-     *         -- USERNAME_NOT_FOUND            3
-     *         -- USERNAME_BAD_STRUCTURE        4
-     *         -- PASSWORD_BAD_STRUCTURE        5
-     *         -- ACCOUNT_IS_LOCKED             6
-     *         -- OTHER_PROBLEMS                7
-     *         -- DB_DENIED_ENTRY_USER          8
-     *         -- DB_DENIED_ENTRY_MAINTENANCE   9
-     *         -- INVALID_REQUEST              10
+     * @param string $email     A users email
+     * @param string $password  A users provided password
      *
      * @return bool
      *
@@ -224,20 +214,10 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getResultDataSet();
         $this->setEmail($this->getProperty('username'));
 
-        if (1 !== $data['record_count']) {
-            /* Username not found in database */
-            $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Username not found in database.');
+        if (1 === $data['record_count']) {
 
-            return false;
-
-        } else {
             /* Apply key stretching */
-            $salt = hash(static::DEFAULT_HASH, $data['uuid']);
-            $password_hashed = null;
-
-            for ($i = 0; $i < (int) $this->getProperty('keyStretching'); $i++) {
-                $password_hashed = hash(static::DEFAULT_HASH, $salt . $this->getProperty('password') . $salt);
-            }
+            $password_hashed = $this->applyKeyStretching($data);
 
             if ((trim($data['passwd_db']) === trim($password_hashed))) {
                 /* Authentication Passed */
@@ -252,7 +232,32 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
 
                 return false;
             }
+
+        } else {
+            /* Username not found in database */
+            $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Username not found in database.');
+
+            return false;
         }
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * This is to slow down authentication processes.
+     *
+     * @return string
+     */
+    private function applyKeyStretching($data): string
+    {
+        $salt = hash(static::DEFAULT_HASH, $data['uuid']);
+        $password_hashed = null;
+
+        for ($i = 0; $i < (int) $this->getProperty('keyStretching'); $i++) {
+            $password_hashed = hash(static::DEFAULT_HASH, $salt . $this->getProperty('password') . $salt);
+        }
+
+        return $password_hashed;
     }
 
     // --------------------------------------------------------------------------
@@ -427,7 +432,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function validatePassword(string $password = null): bool
     {
-        if (! (bool) (preg_match('/^[a-fA-F0-9]{128}$/', trim($password)) && 128 === mb_strlen(trim($password), 'UTF-8'))) {
+        if (!(bool) (preg_match('/^[a-fA-F0-9]{128}$/', trim($password)) && 128 === mb_strlen(trim($password), 'UTF-8'))) {
             $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: Password is badly structured or not provided.');
 
             return false;
@@ -460,7 +465,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
             return false;
         }
 
-        if (! (bool) preg_match('/^[a-z][a-z\d_.-]*$/i', trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8')))) {
+        if (!(bool) preg_match('/^[a-z][a-z\d_.-]*$/i', trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8')))) {
             $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username did not meet login requirements for AD Username.');
 
             return false;
