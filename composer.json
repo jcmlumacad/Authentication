@@ -15,8 +15,11 @@
     },
     "require": {
         "php": "^7.0",
-        "ucsdmath/database": "1.7.x-dev",
         "ucsdmath/functions": "1.7.x-dev",
+        "ucsdmath/filesystem": "1.7.x-dev",
+        "ucsdmath/serialization": "1.7.x-dev",
+        "ucsdmath/configuration-vault": "1.7.x-dev",
+        "ucsdmath/database": "1.7.x-dev",
         "ucsdmath/encryption": "1.7.x-dev"
     },
     "require-dev": {
