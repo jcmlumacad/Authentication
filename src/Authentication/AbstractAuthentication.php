@@ -3,7 +3,7 @@
 /*
  * This file is part of the UCSDMath package.
  *
- * (c) UCSD Mathematics | Math Computing Support <mathhelp@math.ucsd.edu>
+ * Copyright 2016 UCSD Mathematics | Math Computing Support <mathhelp@math.ucsd.edu>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -44,11 +44,11 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  * (+) AuthenticationInterface setPassword($password);
  * (+) AuthenticationInterface setUsername($username);
  * (+) AuthenticationInterface setErrorNumber($num = null);
- * (+) boolean validatePassword($password = null);
- * (+) boolean validateUsername($userName = null);
- * (+) boolean authenticateDatabaseUser($email, $password);
- * (+) boolean authenticateShibbolethUser($adusername = null);
- * (+) boolean processPassword($email = null, $password = null);
+ * (+) bool validatePassword($password = null);
+ * (+) bool validateUsername($userName = null);
+ * (+) bool authenticateDatabaseUser($email, $password);
+ * (+) bool authenticateShibbolethUser($adusername = null);
+ * (+) bool processPassword($email = null, $password = null);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
