@@ -15,8 +15,8 @@ namespace UCSDMath\Authentication;
 
 use UCSDMath\Configuration\Config;
 use UCSDMath\Database\DatabaseInterface;
-use UCSDMath\Functions\ServiceFunctions;
 use UCSDMath\Encryption\EncryptionInterface;
+use UCSDMath\Functions\ServiceFunctions;
 use UCSDMath\Functions\ServiceFunctionsInterface;
 
 /**
