@@ -169,7 +169,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
             relayToRoute(Config::REDIRECT_LOGIN . 'index.php?v=' . $this->encryption->numHash(4, 'encrypt') . ';');
         }
 
-        $data = $this->dbh->getUserEmailAccount($adusername)->getResultDataSet();
+        $data = $this->dbh->getUserEmailAccount($adusername)->getRecords();
 
         if (1 === $data['record_count']) {
             $this->setProperty('email', trim($data['email']));
@@ -211,7 +211,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function authenticateDatabaseUser(string $email, string $password): bool
     {
-        $data = $this->dbh->getUserPassword($this->getProperty('username'))->getResultDataSet();
+        $data = $this->dbh->getUserPassword($this->getProperty('username'))->getRecords();
         $this->setEmail($this->getProperty('username'));
 
         if (1 === $data['record_count']) {
@@ -264,7 +264,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     private function processPassword(string $email = null, string $password = null): bool
     {
-        $data = $this->dbh->getUserPassword($email)->getResultDataSet();
+        $data = $this->dbh->getUserPassword($email)->getRecords();
 
         if (1 !== $data['record_count']) {
             $this->dbh->insertiNetRecordLog($email, '-- Process Error: Email not found in database. Authentication::_processPassword();');
@@ -397,7 +397,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $hours = 3600 * (int) $this->getProperty('hours_unlock_login');
 
         $data = $this->dbh->getUserFailedLoginAttempts($email, $hours)
-            ? $this->dbh->getResultDataSet()
+            ? $this->dbh->getRecords()
             : trigger_error(183, FATAL);
 
         return $data['record_count'] >= (int) $this->getProperty('max_logins_allowed');
