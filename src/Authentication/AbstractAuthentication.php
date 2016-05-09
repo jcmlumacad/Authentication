@@ -169,7 +169,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
             relayToRoute(Config::REDIRECT_LOGIN . 'index.php?v=' . $this->encryption->numHash(4, 'encrypt') . ';');
         }
 
-        $data = $this->dbh->getUserEmailAccount($adusername)->getRecords();
+        $data = $this->dbh->getEmailAddress($adusername)->getRecords();
 
         if (1 === $data['record_count']) {
             $this->setProperty('email', trim($data['email']));
