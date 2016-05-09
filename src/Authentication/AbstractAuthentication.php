@@ -144,18 +144,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Authenticate Shibboleth User.
      *
-     * @notes  Expected ErrorNumber Meaning:
-     *
-     *         -- AUTHENTICATION_PASSED         1
-     *         -- PASSWORD_INCORRECT            2
-     *         -- USERNAME_NOT_FOUND            3
-     *         -- USERNAME_BAD_STRUCTURE        4
-     *         -- PASSWORD_BAD_STRUCTURE        5
-     *         -- ACCOUNT_IS_LOCKED             6
-     *         -- OTHER_PROBLEMS                7
-     *         -- DB_DENIED_ENTRY_USER          8
-     *         -- DB_DENIED_ENTRY_MAINTENANCE   9
-     *         -- INVALID_REQUEST              10
+     * @param string $adusername A campus AD Username
      *
      * @return bool
      *
@@ -163,22 +152,16 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function authenticateShibbolethUser(string $adusername = null): bool
     {
-        $adusername = $adusername === null ? $this->getProperty('adusername') : $adusername;
+        $adusername = null === $adusername ? $this->getProperty('adusername') : $adusername;
 
-        if (!$this->validateUsername($adusername)) {
-            relayToRoute(Config::REDIRECT_LOGIN . 'index.php?v=' . $this->encryption->numHash(4, 'encrypt') . ';');
-        }
-
-        $data = $this->dbh->getEmailAddress($adusername)->getRecords();
-
+        $this->validateUsername($adusername)
+            ?: relayToRoute(Config::REDIRECT_LOGIN . 'index.php?v=' . $this->encryption->numHash(4, 'encrypt') . ';');
+        $data = $this->dbh->getEmailAddress($adusername)->getRecord();
         if (1 === $data['record_count']) {
             $this->setProperty('email', trim($data['email']));
-
             return true;
         } else {
-            /* Database record not found for adusername. */
-            $this->dbh->insertiNetRecordLog($adusername, '-- Login Error: Email from given adusername not found in database.(ADUSERNAME)');
-
+            $this->dbh->insertiNetRecordLog($adusername, '-- Login Error: Email from given adusername not found in personnel database.(ADUSERNAME)');
             return false;
         }
     }
@@ -452,13 +435,11 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     {
         if (null === $userName) {
             $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username not provided or bad parameter.');
-
             return false;
         }
 
         if (!(bool) preg_match('/^[a-z][a-z\d_.-]*$/i', trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8')))) {
             $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username did not meet login requirements for AD Username.');
-
             return false;
         }
 
