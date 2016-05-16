@@ -205,7 +205,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 return true;
             }
             $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: password incorrect.');
-            $this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'), '-- Login Error: password incorrect.');
+            //$this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'), '-- Login Error: password incorrect.');
 
             return false;
         } else {
