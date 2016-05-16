@@ -367,28 +367,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     // --------------------------------------------------------------------------
 
     /**
-     * Accounts lockout threshold.
-     *
-     * Within the last 2 hours has there been 7 or more failed logins?
-     *
-     * @param string $email The user provided username
-     *
-     * @return string
-     */
-    public function getUserFailedLoginAttempts(string $email): string
-    {
-        $hours = 3600 * (int) $this->getProperty('hours_unlock_login');
-
-        $data = $this->dbh->getUserFailedLoginAttempts($email, $hours)
-            ? $this->dbh->getRecords()
-            : trigger_error(183, FATAL);
-
-        return $data['record_count'] >= (int) $this->getProperty('max_logins_allowed');
-    }
-
-    // --------------------------------------------------------------------------
-
-    /**
      * Validate User Password.
      *
      * (                  -- Start of group
