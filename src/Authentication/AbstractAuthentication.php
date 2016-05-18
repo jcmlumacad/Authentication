@@ -63,7 +63,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     const VERSION = '1.7.0';
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Properties.
@@ -106,7 +106,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     protected static $instance    = null;
     protected static $objectCount = 0;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Constructor.
@@ -127,7 +127,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         static::$objectCount++;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Destructor.
@@ -139,7 +139,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         static::$objectCount--;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Authenticate Shibboleth User.
@@ -166,7 +166,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         }
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Relay to location.
@@ -180,7 +180,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         header('Location: ' . $destination, true, 302);
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Authenticate Database User.
@@ -215,7 +215,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         }
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * This is to slow down authentication processes.
@@ -234,7 +234,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $password_hashed;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * This method collects and stores an SHA512 Hash Authentication string
@@ -263,13 +263,13 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return true;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Unset a password.
      * provides unset for $password
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function unsetPassword(): AuthenticationInterface
     {
@@ -278,7 +278,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get a username.
@@ -290,7 +290,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this->{'username'};
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get users email.
@@ -302,7 +302,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this->{'email'};
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the password.
@@ -314,7 +314,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this->{'password'};
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the system type.
@@ -326,7 +326,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this->{'systemType'};
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the error report.
@@ -338,7 +338,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this->getProperty('errorReport');
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the error number.
@@ -350,12 +350,12 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return (int) $this->getProperty('errorNumber');
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set a error number.
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     private function setErrorNumber($num = null): AuthenticationInterface
     {
@@ -364,7 +364,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Validate User Password.
@@ -393,7 +393,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return true;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Validate Username.
@@ -424,7 +424,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return true;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set user password.
@@ -432,7 +432,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * @throws \InvalidArgumentException on non string value for $password
      * @param string $password The user provided password
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function setPassword(string $password): AuthenticationInterface
     {
@@ -441,7 +441,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set username.
@@ -451,7 +451,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * @throws \InvalidArgumentException on non string value for $username
      * @param string  $username  The user provided username
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function setUsername(string $username): AuthenticationInterface
     {
@@ -460,7 +460,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set email property.
@@ -468,7 +468,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * @throws throwInvalidArgumentExceptionError on non string value for $email
      * @param string  $email  A user email
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function setEmail(string $email): AuthenticationInterface
     {
@@ -477,12 +477,12 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Unset the username.
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function unsetUsername(): AuthenticationInterface
     {
@@ -491,7 +491,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Method implementations inserted:
@@ -522,5 +522,5 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     use ServiceFunctions;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 }

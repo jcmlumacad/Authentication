@@ -26,7 +26,7 @@ interface AuthenticationInterface
     const REQUIRED_PHP_VERSION = '7.0.0';
     const DEFAULT_CHARSET = 'UTF-8';
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get users email.
@@ -35,7 +35,7 @@ interface AuthenticationInterface
      */
     public function getEmail(): string;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get a username.
@@ -44,7 +44,7 @@ interface AuthenticationInterface
      */
     public function getUsername(): string;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the password.
@@ -53,26 +53,26 @@ interface AuthenticationInterface
      */
     public function getPassword(): string;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Unset the username.
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function unsetUsername(): AuthenticationInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Unset a password.
      * provides unset for $password
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function unsetPassword(): AuthenticationInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the system type.
@@ -81,7 +81,7 @@ interface AuthenticationInterface
      */
     public function getsystemType(): string;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set email property.
@@ -89,11 +89,11 @@ interface AuthenticationInterface
      * @throws throwInvalidArgumentExceptionError on non string value for $email
      * @param string  $email  A user email
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function setEmail(string $email): AuthenticationInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the error report.
@@ -102,7 +102,7 @@ interface AuthenticationInterface
      */
     public function getErrorReport(): string;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Get the error number.
@@ -111,7 +111,7 @@ interface AuthenticationInterface
      */
     public function getErrorNumber(): int;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set user password.
@@ -119,11 +119,11 @@ interface AuthenticationInterface
      * @throws \InvalidArgumentException on non string value for $password
      * @param string $password The user provided password
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function setPassword(string $password): AuthenticationInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set username.
@@ -133,11 +133,11 @@ interface AuthenticationInterface
      * @throws \InvalidArgumentException on non string value for $username
      * @param string  $username  The user provided username
      *
-     * @return AuthenticationInterface
+     * @return AuthenticationInterface The current instance
      */
     public function setUsername(string $username): AuthenticationInterface;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Validate User Password.
@@ -157,7 +157,7 @@ interface AuthenticationInterface
      */
     public function validatePassword(string $password = null): bool;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Validate Username.
@@ -175,7 +175,7 @@ interface AuthenticationInterface
      */
     public function validateUsername(string $userName = null): bool;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Authenticate Database User.
@@ -199,7 +199,7 @@ interface AuthenticationInterface
      */
     public function authenticateDatabaseUser(string $email, string $password): bool;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Authenticate Shibboleth User.
@@ -223,5 +223,5 @@ interface AuthenticationInterface
      */
     public function authenticateShibbolethUser(string $adusername = null): bool;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 }
