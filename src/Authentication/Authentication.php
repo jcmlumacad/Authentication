@@ -29,7 +29,7 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
     /**
      * Constants.
      *
-     * @var string VERSION  A version number
+     * @var string VERSION A version number
      *
      * @api
      */

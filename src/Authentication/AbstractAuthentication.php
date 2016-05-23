@@ -57,7 +57,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Constants.
      *
-     * @var string VERSION  A version number
+     * @var string VERSION A version number
      *
      * @api
      */
