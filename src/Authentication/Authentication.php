@@ -18,11 +18,17 @@ use UCSDMath\Encryption\EncryptionInterface;
 
 /**
  * Authentication is the default implementation of {@link AuthenticationInterface} which
- * provides routine authentication methods that are commonly used throughout the framework.
+ * provides routine Authentication methods that are commonly used in the framework.
+ *
+ * {@link AbstractAuthentication} is basically a base class for various authentication routines
+ * which this class extends.
+ *
+ * Method list: (+) @api, (-) protected or private visibility.
+ *
+ * (+) AuthenticationInterface __construct();
+ * (+) void __destruct();
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
- *
- * @api
  */
 class Authentication extends AbstractAuthentication implements AuthenticationInterface
 {
@@ -46,8 +52,8 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
     /**
      * Constructor.
      *
-     * @param DatabaseInterface    $dbh         A DatabaseInterface
-     * @param EncryptionInterface  $encryption  A EncryptionInterface
+     * @param DatabaseInterface   $dbh        A DatabaseInterface
+     * @param EncryptionInterface $encryption A EncryptionInterface
      *
      * @api
      */
