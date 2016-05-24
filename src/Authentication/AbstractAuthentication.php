@@ -21,7 +21,7 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
 
 /**
  * AbstractAuthentication provides an abstract base class implementation of {@link AuthenticationInterface}.
- * Primarily, this services the fundamental implementations for all Authentication classes.
+ * This service groups a common code base implementation that Authentication extends.
  *
  * This component library is used to service basic authentication and authorization requirements
  * for user access to applications, methods, and information within the UCSDMath Framework.
@@ -33,22 +33,24 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  * (+) AuthenticationInterface __construct();
  * (+) void __destruct();
  * (+) string getEmail();
- * (+) string getUsername();
+ * (+) int getErrorNumber();
  * (+) string getPassword();
- * (+) AuthenticationInterface unsetUsername();
- * (+) AuthenticationInterface unsetPassword();
+ * (+) string getUsername();
  * (+) string getsystemType();
- * (+) AuthenticationInterface setEmail($email);
  * (+) string getErrorReport();
- * (+) string getErrorNumber();
- * (+) AuthenticationInterface setPassword($password);
- * (+) AuthenticationInterface setUsername($username);
- * (+) AuthenticationInterface setErrorNumber($num = null);
- * (+) bool validatePassword($password = null);
- * (+) bool validateUsername($userName = null);
- * (+) bool authenticateDatabaseUser($email, $password);
- * (+) bool authenticateShibbolethUser($adusername = null);
- * (+) bool processPassword($email = null, $password = null);
+ * (+) void relayToRoute(string $destination);
+ * (+) AuthenticationInterface unsetPassword();
+ * (+) AuthenticationInterface unsetUsername();
+ * (+) bool validatePassword(string $password = null);
+ * (+) bool validateUsername(string $userName = null);
+ * (+) AuthenticationInterface setEmail(string $email);
+ * (+) AuthenticationInterface setPassword(string $password);
+ * (+) AuthenticationInterface setUsername(string $username);
+ * (+) bool authenticateShibbolethUser(string $adusername = null);
+ * (+) bool authenticateDatabaseUser(string $email, string $password);
+ * (-) string applyKeyStretching($data);
+ * (-) AuthenticationInterface setErrorNumber($num = null);
+ * (-) bool processPassword(string $email = null, string $password = null);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
