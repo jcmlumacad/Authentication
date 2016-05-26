@@ -63,4 +63,16 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
     }
 
     //--------------------------------------------------------------------------
+
+    /**
+     * Destructor.
+     *
+     * @api
+     */
+    public function __destruct()
+    {
+        parent::__destruct();
+    }
+
+    //--------------------------------------------------------------------------
 }

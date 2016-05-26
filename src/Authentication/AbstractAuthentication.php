@@ -70,24 +70,24 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Properties.
      *
-     * @var    DatabaseInterface       $dbh                 A DatabaseInterface
-     * @var    EncryptionInterface     $encryption          A EncryptionInterface
-     * @var    string|null             $email               A primary user email
-     * @var    string|null             $dbSalt              A database provided salt
-     * @var    string|null             $username            A user provided username
-     * @var    string|null             $password            A user provided password
-     * @var    string|null             $systemType          A authentication ['DATABASE','SHIBBOLETH']
-     * @var    string|null             $adusername          A user provided active directory username
-     * @var    string|null             $dbUsername          A database provided username
-     * @var    string|null             $dbPassword          A database provided password
-     * @var    integer|null            $errorNumber         A returning error number
-     * @var    string|null             $errorReport         A error feedback/text
-     * @var    bool|null               $allowedAccess       A database provided access privlages
-     * @var    int                     $keyStretching       A time delay for password checking
-     * @var    string|null             $randomPasswordSeed  A seed for generation of user password hashes
-     * @var    array                   $storageRegister     A set of validation stored data elements
-     * @static AuthenticationInterface $instance            A AuthenticationInterface
-     * @static int                     $objectCount         A AuthenticationInterface count
+     * @var    DatabaseInterface       $dbh                A DatabaseInterface
+     * @var    EncryptionInterface     $encryption         A EncryptionInterface
+     * @var    string|null             $email              A primary user email
+     * @var    string|null             $dbSalt             A database provided salt
+     * @var    string|null             $username           A user provided username
+     * @var    string|null             $password           A user provided password
+     * @var    string|null             $systemType         A authentication ['DATABASE','SHIBBOLETH']
+     * @var    string|null             $adusername         A user provided active directory username
+     * @var    string|null             $dbUsername         A database provided username
+     * @var    string|null             $dbPassword         A database provided password
+     * @var    integer|null            $errorNumber        A returning error number
+     * @var    string|null             $errorReport        A error feedback/text
+     * @var    bool|null               $allowedAccess      A database provided access privlages
+     * @var    int                     $keyStretching      A time delay for password checking
+     * @var    string|null             $randomPasswordSeed A seed for generation of user password hashes
+     * @static AuthenticationInterface $instance           A static instance AuthenticationInterface
+     * @static int                     $objectCount        A static count of AuthenticationInterface
+     * @var    array                   $storageRegister    A stored set of data structures used by this class
      */
     protected $dbh                = null;
     protected $encryption         = null;
@@ -104,24 +104,22 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     protected $allowedAccess      = null;
     protected $keyStretching      = 20000;
     protected $randomPasswordSeed = '2ffd2dbeb8b292a845021cacfa9142b27';
-    protected $storageRegister    = array();
     protected static $instance    = null;
     protected static $objectCount = 0;
+    protected $storageRegister    = [];
 
     //--------------------------------------------------------------------------
 
     /**
      * Constructor.
      *
-     * @param DatabaseInterface    $dbh         A DatabaseInterface
-     * @param EncryptionInterface  $encryption  A EncryptionInterface
+     * @param DatabaseInterface   $dbh        A DatabaseInterface
+     * @param EncryptionInterface $encryption A EncryptionInterface
      *
      * @api
      */
-    public function __construct(
-        DatabaseInterface $dbh,
-        EncryptionInterface $encryption
-    ) {
+    public function __construct(DatabaseInterface $dbh, EncryptionInterface $encryption)
+    {
         $this->setProperty('encryption', $encryption);
         $this->setProperty('dbh', $dbh);
 
