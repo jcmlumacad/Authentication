@@ -16,7 +16,7 @@ namespace UCSDMath\Authentication;
 /**
  * AuthenticationInterface is the interface implemented by all Authentication classes.
  *
- * Method noted as: (+) @api.
+ * Method list: (+) @api.
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  *
