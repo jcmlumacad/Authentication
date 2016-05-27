@@ -122,8 +122,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     {
         $this->setProperty('encryption', $encryption);
         $this->setProperty('dbh', $dbh);
-        static::$instance = new static;
-        static::$objectCount++;
     }
 
     //--------------------------------------------------------------------------
