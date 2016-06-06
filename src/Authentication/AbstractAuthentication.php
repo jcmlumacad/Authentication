@@ -445,8 +445,9 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * Stores username in lowercase
      *
+     * @param string $username The user provided username
+     *
      * @throws \InvalidArgumentException on non string value for $username
-     * @param string  $username  The user provided username
      *
      * @return AuthenticationInterface The current instance
      */

@@ -26,9 +26,12 @@ interface AuthenticationInterface
 {
     /**
      * Constants.
+     *
+     * @var string REQUIRED_PHP_VERSION The minimum PHP asset setting
+     * @var string DEFAULT_CHARSET      The character encoding for the system
      */
     const REQUIRED_PHP_VERSION = '7.0.0';
-    const DEFAULT_CHARSET = 'UTF-8';
+    const DEFAULT_CHARSET      = 'UTF-8';
 
     //--------------------------------------------------------------------------
 
@@ -134,8 +137,9 @@ interface AuthenticationInterface
      *
      * Stores username in lowercase
      *
+     * @param string $username The user provided username
+     *
      * @throws \InvalidArgumentException on non string value for $username
-     * @param string  $username  The user provided username
      *
      * @return AuthenticationInterface The current instance
      */
