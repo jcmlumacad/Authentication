@@ -35,7 +35,7 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
     /**
      * Constants.
      *
-     * @var string VERSION A version number
+     * @var string VERSION The version number
      *
      * @api
      */
@@ -52,8 +52,8 @@ class Authentication extends AbstractAuthentication implements AuthenticationInt
     /**
      * Constructor.
      *
-     * @param DatabaseInterface   $dbh        A DatabaseInterface
-     * @param EncryptionInterface $encryption A EncryptionInterface
+     * @param DatabaseInterface   $dbh        The DatabaseInterface
+     * @param EncryptionInterface $encryption The EncryptionInterface
      *
      * @api
      */

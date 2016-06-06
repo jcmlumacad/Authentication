@@ -91,7 +91,7 @@ interface AuthenticationInterface
      * Set email property.
      *
      * @throws throwInvalidArgumentExceptionError on non string value for $email
-     * @param string  $email  A user email
+     * @param string $email The user email
      *
      * @return AuthenticationInterface The current instance
      */

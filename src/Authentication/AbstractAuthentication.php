@@ -59,7 +59,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Constants.
      *
-     * @var string VERSION A version number
+     * @var string VERSION The version number
      *
      * @api
      */
@@ -70,24 +70,24 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Properties.
      *
-     * @var    DatabaseInterface       $dbh                A DatabaseInterface
-     * @var    EncryptionInterface     $encryption         A EncryptionInterface
-     * @var    string|null             $email              A primary user email
-     * @var    string|null             $dbSalt             A database provided salt
-     * @var    string|null             $username           A user provided username
-     * @var    string|null             $password           A user provided password
-     * @var    string|null             $systemType         A authentication ['DATABASE','SHIBBOLETH']
-     * @var    string|null             $adusername         A user provided active directory username
-     * @var    string|null             $dbUsername         A database provided username
-     * @var    string|null             $dbPassword         A database provided password
-     * @var    integer|null            $errorNumber        A returning error number
-     * @var    string|null             $errorReport        A error feedback/text
-     * @var    bool|null               $allowedAccess      A database provided access privlages
-     * @var    int                     $keyStretching      A time delay for password checking
-     * @var    string|null             $randomPasswordSeed A seed for generation of user password hashes
-     * @static AuthenticationInterface $instance           A static instance AuthenticationInterface
-     * @static int                     $objectCount        A static count of AuthenticationInterface
-     * @var    array                   $storageRegister    A stored set of data structures used by this class
+     * @var    DatabaseInterface       $dbh                The DatabaseInterface
+     * @var    EncryptionInterface     $encryption         The EncryptionInterface
+     * @var    string|null             $email              The primary user email
+     * @var    string|null             $dbSalt             The database provided salt
+     * @var    string|null             $username           The user provided username
+     * @var    string|null             $password           The user provided password
+     * @var    string|null             $systemType         The authentication ['DATABASE','SHIBBOLETH']
+     * @var    string|null             $adusername         The user provided active directory username
+     * @var    string|null             $dbUsername         The database provided username
+     * @var    string|null             $dbPassword         The database provided password
+     * @var    integer|null            $errorNumber        The returning error number
+     * @var    string|null             $errorReport        The error feedback/text
+     * @var    bool|null               $allowedAccess      The database provided access privlages
+     * @var    int                     $keyStretching      The time delay for password checking
+     * @var    string|null             $randomPasswordSeed The seed for generation of user password hashes
+     * @static AuthenticationInterface $instance           The static instance AuthenticationInterface
+     * @static int                     $objectCount        The static count of AuthenticationInterface
+     * @var    array                   $storageRegister    The stored set of data structures used by this class
      */
     protected $dbh                = null;
     protected $encryption         = null;
@@ -113,8 +113,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Constructor.
      *
-     * @param DatabaseInterface   $dbh        A DatabaseInterface
-     * @param EncryptionInterface $encryption A EncryptionInterface
+     * @param DatabaseInterface   $dbh        The DatabaseInterface
+     * @param EncryptionInterface $encryption The EncryptionInterface
      *
      * @api
      */
@@ -141,7 +141,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Authenticate Shibboleth User.
      *
-     * @param string $adusername A campus AD Username
+     * @param string $adusername The campus AD Username
      *
      * @return bool
      *
@@ -168,7 +168,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Relay to location.
      *
-     * @param string $destination  A routing location
+     * @param string $destination The routing location
      *
      * @return void
      */
@@ -182,8 +182,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Authenticate Database User.
      *
-     * @param string $email     A users email
-     * @param string $password  A users provided password
+     * @param string $email    The users email
+     * @param string $password The users provided password
      *
      * @return bool
      *
@@ -237,8 +237,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * This method collects and stores an SHA512 Hash Authentication string
      * for database authentication.
      *
-     * @param string $email     A users email
-     * @param string $password  A users provided password
+     * @param string $email    The users email
+     * @param string $password The users provided password
      *
      * @return bool
      */
@@ -463,7 +463,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * Set email property.
      *
      * @throws throwInvalidArgumentExceptionError on non string value for $email
-     * @param string  $email  A user email
+     * @param string $email The user email
      *
      * @return AuthenticationInterface The current instance
      */
