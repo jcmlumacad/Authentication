@@ -152,7 +152,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $adusername = null === $adusername ? $this->getProperty('adusername') : $adusername;
 
         $this->validateUsername($adusername)
-            ?: relayToRoute(Config::REDIRECT_LOGIN . 'index.php?v=' . $this->encryption->numHash(4, 'encrypt') . ';');
+            ?: relayToRoute(Config::REDIRECT_LOGIN.'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
         $data = $this->dbh->getEmailAddress($adusername)->getRecord();
         if (1 === $data['record_count']) {
             $this->setProperty('email', trim($data['email']));
@@ -225,7 +225,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $password_hashed = null;
 
         for ($i = 0; $i < (int) $this->getProperty('keyStretching'); $i++) {
-            $password_hashed = hash(static::DEFAULT_HASH, $salt . $this->getProperty('password') . $salt);
+            $password_hashed = hash(static::DEFAULT_HASH, $salt.$this->getProperty('password').$salt);
         }
 
         return $password_hashed;
@@ -252,8 +252,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         }
 
         $salt       = hash(static::DEFAULT_HASH, mb_strtoupper($data['uuid']), 'UTF-8');
-        $pass       = hash(static::DEFAULT_HASH, $email . $this->getProperty('randomPasswordSeed') . $password);
-        $passwdHash = hash(static::DEFAULT_HASH, $salt . $pass . $salt);
+        $pass       = hash(static::DEFAULT_HASH, $email.$this->getProperty('randomPasswordSeed').$password);
+        $passwdHash = hash(static::DEFAULT_HASH, $salt.$pass.$salt);
 
         $this->dbh->updateUserPassword($email, $passwdHash) ?: trigger_error(197, FATAL);
 
