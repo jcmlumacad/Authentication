@@ -150,7 +150,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     public function authenticateShibbolethUser(string $adusername = null): bool
     {
         $adusername = null === $adusername ? $this->getProperty('adusername') : $adusername;
-
         $this->validateUsername($adusername)
             ?: relayToRoute(Config::REDIRECT_LOGIN.'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
         $data = $this->dbh->getEmailAddress($adusername)->getRecord();
@@ -174,7 +173,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function relayToRoute(string $destination)
     {
-        header('Location: ' . $destination, true, 302);
+        header('Location: '.$destination, true, 302);
     }
 
     //--------------------------------------------------------------------------
@@ -193,7 +192,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     {
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getRecords();
         $this->setEmail($this->getProperty('username'));
-
         if (1 === $data['record_count']) {
             $password_hashed = $this->applyKeyStretching($data);
             if ((trim($data['passwd_db']) === trim($password_hashed))) {
@@ -202,7 +200,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
                 return true;
             }
             $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login Error: password incorrect.');
-            //$this->dbh->insertUserFailedAuthenticationAttempt($this->getProperty('username'), '-- Login Error: password incorrect.');
 
             return false;
         } else {
@@ -223,7 +220,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     {
         $salt = hash(static::DEFAULT_HASH, $data['uuid']);
         $password_hashed = null;
-
         for ($i = 0; $i < (int) $this->getProperty('keyStretching'); $i++) {
             $password_hashed = hash(static::DEFAULT_HASH, $salt.$this->getProperty('password').$salt);
         }
@@ -242,19 +238,16 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return bool
      */
-    private function processPassword(string $email = null, string $password = null): bool
+    protected function processPassword(string $email = null, string $password = null): bool
     {
         $data = $this->dbh->getUserPassword($email)->getRecords();
-
         if (1 !== $data['record_count']) {
             $this->dbh->insertiNetRecordLog($email, '-- Process Error: Email not found in database. Authentication::_processPassword();');
             return false;
         }
-
         $salt       = hash(static::DEFAULT_HASH, mb_strtoupper($data['uuid']), 'UTF-8');
         $pass       = hash(static::DEFAULT_HASH, $email.$this->getProperty('randomPasswordSeed').$password);
         $passwdHash = hash(static::DEFAULT_HASH, $salt.$pass.$salt);
-
         $this->dbh->updateUserPassword($email, $passwdHash) ?: trigger_error(197, FATAL);
 
         return true;
@@ -354,7 +347,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return AuthenticationInterface The current instance
      */
-    private function setErrorNumber($num = null): AuthenticationInterface
+    protected function setErrorNumber($num = null): AuthenticationInterface
     {
         $this->setProperty('errorNumber', (int) $num);
 
@@ -412,7 +405,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
             $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username not provided or bad parameter.');
             return false;
         }
-
         if (!(bool) preg_match('/^[a-z][a-z\d_.-]*$/i', trim(mb_substr(trim(strtolower($userName)), 0, 64, 'UTF-8')))) {
             $this->dbh->insertiNetRecordLog($userName, '-- Login Error: Username did not meet login requirements for AD Username.');
             return false;
