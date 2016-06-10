@@ -15,9 +15,10 @@ namespace UCSDMath\Authentication;
 
 use UCSDMath\Configuration\Config;
 use UCSDMath\Database\DatabaseInterface;
-use UCSDMath\Encryption\EncryptionInterface;
 use UCSDMath\Functions\ServiceFunctions;
+use UCSDMath\Encryption\EncryptionInterface;
 use UCSDMath\Functions\ServiceFunctionsInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * AbstractAuthentication provides an abstract base class implementation of {@link AuthenticationInterface}.
@@ -38,7 +39,6 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  * (+) string getUsername();
  * (+) string getsystemType();
  * (+) string getErrorReport();
- * (+) void relayToRoute(string $destination);
  * (+) AuthenticationInterface unsetPassword();
  * (+) AuthenticationInterface unsetUsername();
  * (+) bool validatePassword(string $password = null);
@@ -47,6 +47,7 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  * (+) AuthenticationInterface setPassword(string $password);
  * (+) AuthenticationInterface setUsername(string $username);
  * (+) bool authenticateShibbolethUser(string $adusername = null);
+ * (+) void requestRoute(string $destination, bool $trailFix = false);
  * (+) bool authenticateDatabaseUser(string $email, string $password);
  * (-) string applyKeyStretching($data);
  * (-) AuthenticationInterface setErrorNumber($num = null);
@@ -151,7 +152,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     {
         $adusername = null === $adusername ? $this->getProperty('adusername') : $adusername;
         $this->validateUsername($adusername)
-            ?: relayToRoute(Config::REDIRECT_LOGIN.'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
+            ?: requestRoute(Config::REDIRECT_LOGIN.'index.php?v='.$this->encryption->numHash(4, 'encrypt').';');
         $data = $this->dbh->getEmailAddress($adusername)->getRecord();
         if (1 === $data['record_count']) {
             $this->setProperty('email', trim($data['email']));
@@ -165,16 +166,19 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     //--------------------------------------------------------------------------
 
     /**
-     * Relay to location.
+     * Route to location (RedirectResponse extends Response).
      *
      * @param string $destination The routing location
+     * @param bool   $trailFix    The fix for the trailing slash
      *
      * @return void
      */
-    public function relayToRoute(string $destination)
+    public function requestRoute(string $destination, bool $trailFix = false)
     {
-        header('Location: '.$destination, true, 302);
-        exit('Routing error ... AbstractAuthentication::relayToRoute()');
+        $response = true === $trailFix
+            ? new RedirectResponse(rtrim($destination, '/\\').'/')
+            : new RedirectResponse($destination);
+        $response->send();
     }
 
     //--------------------------------------------------------------------------
