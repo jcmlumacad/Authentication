@@ -174,6 +174,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     public function relayToRoute(string $destination)
     {
         header('Location: '.$destination, true, 302);
+        exit('Routing error ... AbstractAuthentication::relayToRoute()');
     }
 
     //--------------------------------------------------------------------------
