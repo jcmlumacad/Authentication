@@ -14,17 +14,17 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "ucsdmath/database": "1.7.0",
-        "ucsdmath/functions": "1.7.0",
-        "ucsdmath/encryption": "1.7.0",
-        "ucsdmath/filesystem": "1.7.0",
-        "ucsdmath/serialization": "1.7.0",
-        "ucsdmath/configuration-vault": "1.7.0"
+        "ucsdmath/database": "1.8.x-dev",
+        "ucsdmath/functions": "1.8.x-dev",
+        "ucsdmath/encryption": "1.8.x-dev",
+        "ucsdmath/filesystem": "1.8.x-dev",
+        "ucsdmath/serialization": "1.8.x-dev",
+        "ucsdmath/configuration-vault": "1.8.x-dev"
     },
     "require-dev": {
         "mockery/mockery": "0.9.5",
         "phpunit/phpunit": "5.4.6",
-        "ucsdmath/testing": "1.7.0",
+        "ucsdmath/testing": "1.8.x-dev",
         "squizlabs/php_codesniffer": "2.6.1"
     },
     "autoload": {
@@ -37,7 +37,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.7-dev"
+            "dev-master": "1.8-dev"
         }
     },
     "minimum-stability": "dev"
