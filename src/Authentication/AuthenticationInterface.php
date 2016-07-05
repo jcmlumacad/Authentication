@@ -27,11 +27,17 @@ interface AuthenticationInterface
     /**
      * Constants.
      *
-     * @var string REQUIRED_PHP_VERSION The minimum PHP asset setting
-     * @var string DEFAULT_CHARSET      The character encoding for the system
+     * @var string FRAMEWORK_MINIMUM_PHP The framework's minimum supported PHP version
+     * @var string DEFAULT_CHARSET       The character encoding for the system
+     * @var string CRLF                  The carriage return line feed
+     * @var bool   REQUIRE_HTTPS         The secure setting TLS/SSL site requirement
+     * @var string DEFAULT_TIMEZONE      The local timezone for the server (or set in ini.php)
      */
-    const REQUIRED_PHP_VERSION = '7.0.0';
-    const DEFAULT_CHARSET      = 'UTF-8';
+    const FRAMEWORK_MINIMUM_PHP = '7.0.0';
+    const DEFAULT_CHARSET       = 'UTF-8';
+    const CRLF                  = "\r\n";
+    const REQUIRE_HTTPS         = true;
+    const DEFAULT_TIMEZONE      = 'America/Los_Angeles';
 
     //--------------------------------------------------------------------------
 
