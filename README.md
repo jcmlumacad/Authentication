@@ -13,8 +13,8 @@
         <a href="https://travis-ci.org/ucsdmath/Authentication">
         <img style="float: left; margin: 0px 0px 15px 15px;" src="https://travis-ci.org/ucsdmath/Authentication.svg?branch=master"></a></td>
     <td width="250" align="center">
-        <a href="https://insight.sensiolabs.com/projects/84fe033b-3755-4a24-85d6-1dd5bbe43b4d">
-        <img src="https://insight.sensiolabs.com/projects/84fe033b-3755-4a24-85d6-1dd5bbe43b4d/big.png" style="float: right; margin: 0px 0px 15px 15px;" width="212" height="51"></a></td>
+        <a href="https://insight.sensiolabs.com/projects/213f0247-56c2-4dc1-8b8f-bb72ef0ee88b">
+        <img src="https://insight.sensiolabs.com/projects/213f0247-56c2-4dc1-8b8f-bb72ef0ee88b/big.png" style="float: right; margin: 0px 0px 15px 15px;" width="212" height="51"></a></td>
     <td width="180">
         <a href="https://www.versioneye.com/php/ucsdmath:authentication">
         <img style="float: left; margin: 0px 0px 15px 15px;" src="https://www.versioneye.com/php/ucsdmath:authentication/badge.png?branch=master"></a></td>
