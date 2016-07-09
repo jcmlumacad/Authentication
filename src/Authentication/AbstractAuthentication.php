@@ -43,7 +43,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  * (+) AuthenticationInterface unsetUsername();
  * (+) bool validatePassword(string $password = null);
  * (+) bool validateUsername(string $userName = null);
- * (+) AuthenticationInterface setEmail(string $email);
  * (+) AuthenticationInterface setPassword(string $password);
  * (+) AuthenticationInterface setUsername(string $username);
  * (+) bool authenticateShibbolethUser(string $adusername = null);
@@ -186,17 +185,14 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     /**
      * Authenticate Database User.
      *
-     * @param string $email    The users email
-     * @param string $password The users provided password
-     *
      * @return bool
      *
      * @api
      */
-    public function authenticateDatabaseUser(string $email, string $password): bool
+    public function authenticateDatabaseUser(): bool
     {
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getRecords();
-        $this->setEmail($this->getProperty('username'));
+        $this->setProperty('email', strtolower(trim($this->getProperty('username'))));
         if (1 === $data['record_count']) {
             $password_hashed = $this->applyKeyStretching($data);
             if ((trim($data['passwd_db']) === trim($password_hashed))) {
@@ -451,23 +447,6 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     public function setUsername(string $username): AuthenticationInterface
     {
         $this->setProperty('username', strtolower(trim($username)));
-
-        return $this;
-    }
-
-    //--------------------------------------------------------------------------
-
-    /**
-     * Set email property.
-     *
-     * @throws throwInvalidArgumentExceptionError on non string value for $email
-     * @param string $email The user email
-     *
-     * @return AuthenticationInterface The current instance
-     */
-    public function setEmail(string $email): AuthenticationInterface
-    {
-        $this->setProperty('email', strtolower(trim($email)));
 
         return $this;
     }

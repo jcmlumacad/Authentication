@@ -97,18 +97,6 @@ interface AuthenticationInterface
     //--------------------------------------------------------------------------
 
     /**
-     * Set email property.
-     *
-     * @throws throwInvalidArgumentExceptionError on non string value for $email
-     * @param string $email The user email
-     *
-     * @return AuthenticationInterface The current instance
-     */
-    public function setEmail(string $email): AuthenticationInterface;
-
-    //--------------------------------------------------------------------------
-
-    /**
      * Get the error report.
      *
      * @return string
@@ -211,7 +199,7 @@ interface AuthenticationInterface
      *
      * @api
      */
-    public function authenticateDatabaseUser(string $email, string $password): bool;
+    public function authenticateDatabaseUser(): bool;
 
     //--------------------------------------------------------------------------
 
