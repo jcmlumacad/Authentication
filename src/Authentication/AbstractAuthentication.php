@@ -73,16 +73,12 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * @var    DatabaseInterface       $dbh                The DatabaseInterface
      * @var    EncryptionInterface     $encryption         The EncryptionInterface
      * @var    string|null             $email              The primary user email
-     * @var    string|null             $dbSalt             The database provided salt
      * @var    string|null             $username           The user provided username
      * @var    string|null             $password           The user provided password
      * @var    string|null             $systemType         The authentication ['DATABASE','SHIBBOLETH']
      * @var    string|null             $adusername         The user provided active directory username
-     * @var    string|null             $dbUsername         The database provided username
-     * @var    string|null             $dbPassword         The database provided password
      * @var    integer|null            $errorNumber        The returning error number
      * @var    string|null             $errorReport        The error feedback/text
-     * @var    bool|null               $allowedAccess      The database provided access privlages
      * @var    int                     $keyStretching      The time delay for password checking
      * @var    string|null             $randomPasswordSeed The seed for generation of user password hashes
      * @static AuthenticationInterface $instance           The static instance AuthenticationInterface
@@ -92,16 +88,12 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     protected $dbh                = null;
     protected $encryption         = null;
     protected $email              = null;
-    protected $dbSalt             = null;
     protected $username           = null;
     protected $password           = null;
     protected $systemType         = 'SHIBBOLETH';
     protected $adusername         = null;
-    protected $dbUsername         = null;
-    protected $dbPassword         = null;
     protected $errorNumber        = null;
     protected $errorReport        = null;
-    protected $allowedAccess      = null;
     protected $keyStretching      = 20000;
     protected $randomPasswordSeed = '2ffd2dbeb8b292a845021cacfa9142b27';
     protected static $instance    = null;
@@ -194,8 +186,8 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
         $data = $this->dbh->getUserPassword($this->getProperty('username'))->getRecords();
         $this->setProperty('email', strtolower(trim($this->getProperty('username'))));
         if (1 === $data['record_count']) {
-            $password_hashed = $this->applyKeyStretching($data);
-            if ((trim($data['passwd_db']) === trim($password_hashed))) {
+            $passwordHashed = $this->applyKeyStretching($data);
+            if ((trim($data['passwd_db']) === trim($passwordHashed))) {
                 $this->dbh->insertiNetRecordLog($this->getProperty('username'), '-- Login OK: Authention Granted Access.');
 
                 return true;
@@ -220,12 +212,12 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
     private function applyKeyStretching($data): string
     {
         $salt = hash(static::DEFAULT_HASH, $data['uuid']);
-        $password_hashed = null;
+        $passwordHashed = null;
         for ($i = 0; $i < (int) $this->getProperty('keyStretching'); $i++) {
-            $password_hashed = hash(static::DEFAULT_HASH, $salt.$this->getProperty('password').$salt);
+            $passwordHashed = hash(static::DEFAULT_HASH, $salt.$this->getProperty('password').$salt);
         }
 
-        return $password_hashed;
+        return $passwordHashed;
     }
 
     //--------------------------------------------------------------------------
