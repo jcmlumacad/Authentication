@@ -13,7 +13,7 @@
         <img src="https://insight.sensiolabs.com/projects/16eaa6b1-ffed-4699-a978-a345a60e6158/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
     <td width="180" align="center">
         <a href="https://www.versioneye.com/php/ucsdmath:authentication">
-        <img src="https://www.versioneye.com/php/ucsdmath:authentication/badge.png?branch=master&style=flat" style="float:left;margin:0px 0px 10px 10px;"></a><br>
+        <img src="https://www.versioneye.com/php/ucsdmath:authentication/dev-master/badge.png?style=flat" style="float:left;margin:0px 0px 10px 10px;"></a><br>
         <a href="https://codeclimate.com/github/ucsdmath/Authentication">
         <img src="https://codeclimate.com/github/ucsdmath/Authentication/badges/gpa.svg"></a>
 </td></tr></table></td></tr></table>
