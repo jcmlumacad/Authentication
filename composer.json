@@ -14,12 +14,11 @@
     ],
     "require": {
         "php": ">=7.0.0",
+        "symfony/http-foundation": "3.1.2",
         "ucsdmath/database": "1.8.x-dev",
         "ucsdmath/functions": "1.8.x-dev",
         "ucsdmath/encryption": "1.8.x-dev",
-        "ucsdmath/filesystem": "1.8.x-dev",
-        "ucsdmath/serialization": "1.8.x-dev",
-        "ucsdmath/configuration-vault": "1.8.x-dev"
+        "ucsdmath/configuration": "1.8.x-dev"
     },
     "require-dev": {
         "mockery/mockery": "0.9.5",
