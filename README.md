@@ -11,8 +11,8 @@
         <a href="https://www.codacy.com/app/ucsdmath-project/Authentication">
         <img src="https://api.codacy.com/project/badge/Grade/80782b2bc771422f9e1cbab82789cc19"></a></td>
     <td width="250" align="center">
-        <a href="https://insight.sensiolabs.com/projects/16eaa6b1-ffed-4699-a978-a345a60e6158">
-        <img src="https://insight.sensiolabs.com/projects/16eaa6b1-ffed-4699-a978-a345a60e6158/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
+        <a href="https://insight.sensiolabs.com/projects/ea569a0e-25b5-4a0e-a63b-dc5c59e36ccf">
+        <img src="https://insight.sensiolabs.com/projects/ea569a0e-25b5-4a0e-a63b-dc5c59e36ccf/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
     <td width="180" align="center">
         <a href="https://www.versioneye.com/user/projects/577fb96b5bb13900384143d2">
         <img src="https://www.versioneye.com/user/projects/577fb96b5bb13900384143d2/badge.png?style=flat" style="float:left;margin:0px 0px 10px 10px;"></a><br>
