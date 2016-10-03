@@ -9,7 +9,12 @@
         <a href="https://travis-ci.org/ucsdmath/Authentication">
         <img src="https://travis-ci.org/ucsdmath/Authentication.svg?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a><br>
         <a href="https://www.codacy.com/app/ucsdmath-project/Authentication">
-        <img src="https://api.codacy.com/project/badge/Grade/80782b2bc771422f9e1cbab82789cc19"></a></td>
+        <img src="https://api.codacy.com/project/badge/Grade/80782b2bc771422f9e1cbab82789cc19"></a>
+
+        <a href="https://scrutinizer-ci.com/g/ucsdmath/Authentication/?branch=master">
+        <img src="https://img.shields.io/scrutinizer/g/ucsdmath/Authentication.svg"></a>
+
+    </td>
     <td width="250" align="center">
         <a href="https://insight.sensiolabs.com/projects/ea569a0e-25b5-4a0e-a63b-dc5c59e36ccf">
         <img src="https://insight.sensiolabs.com/projects/ea569a0e-25b5-4a0e-a63b-dc5c59e36ccf/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
