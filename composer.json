@@ -15,16 +15,16 @@
     "require": {
         "php": ">=7.0.0",
         "symfony/http-foundation": "3.1.5",
-        "ucsdmath/database": "1.10.x-dev",
-        "ucsdmath/functions": "1.10.x-dev",
-        "ucsdmath/encryption": "1.10.x-dev",
-        "ucsdmath/configuration": "1.10.x-dev"
+        "ucsdmath/database": "1.10.0",
+        "ucsdmath/functions": "1.10.0",
+        "ucsdmath/encryption": "1.10.0",
+        "ucsdmath/configuration": "1.10.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.5",
         "phpunit/phpunit": "5.6.1",
         "fzaninotto/faker": "1.6.0",
-        "ucsdmath/testing": "1.10.x-dev",
+        "ucsdmath/testing": "1.10.0",
         "squizlabs/php_codesniffer": "2.7.0"
     },
     "autoload": {
