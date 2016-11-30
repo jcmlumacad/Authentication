@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "symfony/http-foundation": "3.1.7",
+        "symfony/http-foundation": "3.2.0",
         "ucsdmath/database": "1.11.x-dev",
         "ucsdmath/functions": "1.11.x-dev",
         "ucsdmath/encryption": "1.11.x-dev",
@@ -25,7 +25,7 @@
         "phpunit/phpunit": "5.6.7",
         "fzaninotto/faker": "1.6.0",
         "ucsdmath/testing": "1.11.x-dev",
-        "squizlabs/php_codesniffer": "2.7.0"
+        "squizlabs/php_codesniffer": "2.7.1"
     },
     "autoload": {
         "psr-4": {
