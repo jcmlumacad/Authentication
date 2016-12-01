@@ -5,7 +5,7 @@
     "keywords": ["authentication", "ucsdmath", "component"],
     "homepage": "https://github.com/ucsdmath",
     "license": "MIT",
-    "time": "2016-10-20",
+    "time": "2016-12-02",
     "authors": [
         {
             "name": "Daryl Eisner",
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.0",
         "symfony/http-foundation": "3.2.0",
         "ucsdmath/database": "1.11.x-dev",
         "ucsdmath/functions": "1.11.x-dev",
