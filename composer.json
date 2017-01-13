@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=7.0",
-        "symfony/http-foundation": "3.2.1",
+        "symfony/http-foundation": "3.2.2",
         "ucsdmath/database": "1.13.x-dev",
         "ucsdmath/functions": "1.13.x-dev",
         "ucsdmath/encryption": "1.13.x-dev",
