@@ -15,16 +15,16 @@
     "require": {
         "php": ">=7.0",
         "symfony/http-foundation": "3.2.2",
-        "ucsdmath/database": "1.13.0",
-        "ucsdmath/functions": "1.13.0",
-        "ucsdmath/encryption": "1.13.0",
-        "ucsdmath/configuration": "1.13.0"
+        "ucsdmath/database": "1.14.x-dev",
+        "ucsdmath/functions": "1.14.x-dev",
+        "ucsdmath/encryption": "1.14.x-dev",
+        "ucsdmath/configuration": "1.14.x-dev"
     },
     "require-dev": {
         "mockery/mockery": "0.9.7",
         "phpunit/phpunit": "6.0.5",
         "fzaninotto/faker": "1.6.0",
-        "ucsdmath/date": "1.13.0",
+        "ucsdmath/date": "1.14.x-dev",
         "symfony/var-dumper": "3.2.2",
         "squizlabs/php_codesniffer": "2.8.0"
     },
@@ -38,7 +38,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.13-dev"
+            "dev-master": "1.14-dev"
         }
     },
     "minimum-stability": "dev"
