@@ -49,7 +49,7 @@
         <img src="https://poser.pugx.org/ucsdmath/Authentication/v/stable"></a></td>
     <td valign="top" width="108" align="center">
         <a href="https://php.net/">
-        <img src="https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg"></a></td>
+        <img src="https://img.shields.io/badge/PHP-%3E%3D%207.1-8892BF.svg"></a></td>
     <td valign="top" width="150" align="center">
         <a href="https://packagist.org/packages/ucsdmath/Authentication">
         <img src="https://poser.pugx.org/ucsdmath/Authentication/downloads"></a></td>
@@ -76,7 +76,7 @@ You can install the class ```Authentication``` with Composer and Packagist by ad
 
 ```
 "require": {
-    "php": "^7.0",
+    "php": "^7.1",
     "ucsdmath/authentication": "dev-master"
 },
 ```
