@@ -476,10 +476,10 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * (+) bool isValidUuid(string $uuid);
      * (+) bool isValidEmail(string $email);
      * (+) bool isValidSHA512(string $hash);
-     * (+) mixed __call($callback, $parameters);
-     * (+) bool doesFunctionExist($functionName);
      * (+) bool isStringKey(string $str, array $keys);
+     * (+) bool doesFunctionExist(string $functionName);
      * (+) mixed get(string $key, string $subkey = null);
+     * (+) mixed __call(string $callback, array $parameters);
      * (+) mixed getProperty(string $name, string $key = null);
      * (+) object set(string $key, $value, string $subkey = null);
      * (+) object setProperty(string $name, $value, string $key = null);
