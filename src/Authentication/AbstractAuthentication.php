@@ -164,7 +164,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @return void
      */
-    public function requestRoute(string $destination, bool $trailFix = false)
+    public function requestRoute(string $destination, bool $trailFix = false): void
     {
         $response = true === $trailFix
             ? new RedirectResponse(rtrim($destination, '/\\').'/')
