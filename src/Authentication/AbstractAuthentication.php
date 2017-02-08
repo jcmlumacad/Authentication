@@ -63,7 +63,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @api
      */
-    const VERSION = '1.14.0';
+    public const VERSION = '1.14.0';
 
     //--------------------------------------------------------------------------
 
