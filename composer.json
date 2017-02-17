@@ -14,19 +14,19 @@
     ],
     "require": {
         "php": ">=7.1",
-        "symfony/http-foundation": "3.2.3",
+        "symfony/http-foundation": "3.2.4",
         "ucsdmath/database": "1.15.x-dev",
         "ucsdmath/functions": "1.15.x-dev",
         "ucsdmath/encryption": "1.15.x-dev",
         "ucsdmath/configuration": "1.15.x-dev"
     },
     "require-dev": {
-        "symfony/debug": "3.2.3",
+        "symfony/debug": "3.2.4",
         "mockery/mockery": "0.9.8",
         "phpunit/phpunit": "6.0.6",
         "fzaninotto/faker": "1.6.0",
         "ucsdmath/date": "1.15.x-dev",
-        "symfony/var-dumper": "3.2.3",
+        "symfony/var-dumper": "3.2.4",
         "squizlabs/php_codesniffer": "2.8.0"
     },
     "autoload": {
