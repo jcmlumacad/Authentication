@@ -1,26 +1,20 @@
 # Authentication
 <table border="0">
   <tr>
-    <td width="310"><img height="160" width="310"alt="UCSDMath - Mathlink" src="https://github.com/ucsdmath/Testing/blob/master/ucsdmath-logo.png"></td>
+    <td width="310"><img height="160" width="310" alt="UCSDMath - Mathlink" src="https://github.com/ucsdmath/Testing/blob/master/ucsdmath-logo.png"></td>
     <td><h3>A Development Project in PHP</h3><p><strong>UCSDMath</strong> provides a testing framework for general internal Intranet software applications for the UCSD, Department of Mathematics. This is used for development and testing only. [not for production]</p>
-
 <table width="550"><tr><td width="120"><b>Travis CI</b></td><td width="250"><b>SensioLabs</b></td><td width="180"><b>Dependencies</b></td></tr><tr>
-
     <td width="120" align="center">
         <a href="https://travis-ci.org/ucsdmath/Authentication">
         <img src="https://travis-ci.org/ucsdmath/Authentication.svg?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a><br>
-
         <a href="https://www.codacy.com/app/ucsdmath-project/Authentication">
         <img src="https://api.codacy.com/project/badge/Grade/80782b2bc771422f9e1cbab82789cc19"></a><br>
-
         <a href="https://scrutinizer-ci.com/g/ucsdmath/Authentication/?branch=master">
         <img src="https://img.shields.io/scrutinizer/g/ucsdmath/Authentication.svg"></a>
     </td>
-
     <td width="250" align="center">
         <a href="https://insight.sensiolabs.com/projects/ea569a0e-25b5-4a0e-a63b-dc5c59e36ccf">
         <img src="https://insight.sensiolabs.com/projects/ea569a0e-25b5-4a0e-a63b-dc5c59e36ccf/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a><br>
-
         <a href="https://travis-ci.org/ucsdmath/Authentication"><img src="https://img.shields.io/badge/PHP-%207.1%20Tested%20-33cc33.svg"></a>
     </td>
     <td width="180" align="center">
