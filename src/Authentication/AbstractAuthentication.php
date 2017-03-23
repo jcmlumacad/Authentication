@@ -72,18 +72,18 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * @var    DatabaseInterface       $dbh                The DatabaseInterface
      * @var    EncryptionInterface     $encryption         The EncryptionInterface
-     * @var    string|null             $email              The primary user email
-     * @var    string|null             $username           The user provided username
-     * @var    string|null             $password           The user provided password
-     * @var    string|null             $systemType         The authentication ['DATABASE','SHIBBOLETH']
-     * @var    string|null             $adusername         The user provided active directory username
-     * @var    integer|null            $errorNumber        The returning error number
-     * @var    string|null             $errorReport        The error feedback/text
+     * @var    string                  $email              The primary user email
+     * @var    string                  $username           The user provided username
+     * @var    string                  $password           The user provided password
+     * @var    string                  $systemType         The authentication ['DATABASE','SHIBBOLETH']
+     * @var    string                  $adusername         The user provided active directory username
+     * @var    int                     $errorNumber        The returning error number
+     * @var    string                  $errorReport        The error feedback/text
      * @var    int                     $keyStretching      The time delay for password checking
-     * @var    string|null             $randomPasswordSeed The seed for generation of user password hashes
+     * @var    string                  $randomPasswordSeed The seed for generation of user password hashes
      * @static AuthenticationInterface $instance           The static instance AuthenticationInterface
      * @static int                     $objectCount        The static count of AuthenticationInterface
-     * @var    array                   $storageRegister    The stored set of data structures used by this class
+     * @var    iterable                $storageRegister    The stored set of data structures used by this class
      */
     protected $dbh                = null;
     protected $encryption         = null;
@@ -112,8 +112,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      */
     public function __construct(DatabaseInterface $dbh, EncryptionInterface $encryption)
     {
-        $this->setProperty('encryption', $encryption);
-        $this->setProperty('dbh', $dbh);
+        $this->setProperty('dbh', $dbh)->setProperty('encryption', $encryption);
     }
 
     //--------------------------------------------------------------------------
@@ -464,15 +463,15 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * Method list: (+) @api, (-) protected or private visibility.
      *
-     * (+) array all();
+     * (+) iterable all();
      * (+) object init();
      * (+) string version();
      * (+) bool isString($str);
      * (+) bool has(string $key);
      * (+) string getClassName();
      * (+) int getInstanceCount();
-     * (+) array getClassInterfaces();
      * (+) mixed getConst(string $key);
+     * (+) iterable getClassInterfaces();
      * (+) bool isValidUuid(string $uuid);
      * (+) bool isValidEmail(string $email);
      * (+) bool isValidSHA512(string $hash);
