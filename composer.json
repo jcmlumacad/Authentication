@@ -17,6 +17,7 @@
         "symfony/http-foundation": "3.3.4",
         "ucsdmath/database": "1.21.x-dev",
         "ucsdmath/functions": "1.21.x-dev",
+        "ucsdmath/filesystem": "1.21.x-dev",
         "ucsdmath/encryption": "1.21.x-dev",
         "ucsdmath/configuration": "1.21.x-dev"
     },
