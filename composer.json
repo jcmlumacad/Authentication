@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "symfony/http-foundation": "3.3.5",
+        "symfony/http-foundation": "3.3.6",
         "ucsdmath/database": "1.23.x-dev",
         "ucsdmath/functions": "1.23.x-dev",
         "ucsdmath/filesystem": "1.23.x-dev",
@@ -22,18 +22,18 @@
         "ucsdmath/configuration": "1.23.x-dev"
     },
     "require-dev": {
-        "symfony/debug": "3.3.5",
+        "symfony/debug": "3.3.6",
         "mockery/mockery": "0.9.9",
         "phpunit/phpunit": "6.2.3",
         "fzaninotto/faker": "1.6.0",
         "ucsdmath/date": "1.23.x-dev",
-        "symfony/var-dumper": "3.3.5",
-        "symfony/browser-kit": "3.3.5",
-        "symfony/dom-crawler": "3.3.5",
-        "symfony/options-resolver": "3.3.5",
-        "symfony/browser-kit": "3.3.5",
-        "symfony/dom-crawler": "3.3.5",
-        "symfony/options-resolver": "3.3.5",
+        "symfony/var-dumper": "3.3.6",
+        "symfony/browser-kit": "3.3.6",
+        "symfony/dom-crawler": "3.3.6",
+        "symfony/options-resolver": "3.3.6",
+        "symfony/browser-kit": "3.3.6",
+        "symfony/dom-crawler": "3.3.6",
+        "symfony/options-resolver": "3.3.6",
         "squizlabs/php_codesniffer": "3.0.2"
     },
     "autoload": {
