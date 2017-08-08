@@ -83,7 +83,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * @var    string                  $randomPasswordSeed The seed for generation of user password hashes
      * @static AuthenticationInterface $instance           The static instance AuthenticationInterface
      * @static int                     $objectCount        The static count of AuthenticationInterface
-     * @var    iterable                $storageRegister    The stored set of data structures used by this class
+     * @var    array                   $storageRegister    The stored set of data structures used by this class
      */
     protected $dbh                = null;
     protected $encryption         = null;
@@ -463,7 +463,7 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      *
      * Method list: (+) @api, (-) protected or private visibility.
      *
-     * (+) iterable all();
+     * (+) array all();
      * (+) object init();
      * (+) string version();
      * (+) bool isString($str);
@@ -471,19 +471,19 @@ abstract class AbstractAuthentication implements AuthenticationInterface, Servic
      * (+) string getClassName();
      * (+) int getInstanceCount();
      * (+) mixed getConst(string $key);
-     * (+) iterable getClassInterfaces();
+     * (+) array getClassInterfaces();
      * (+) bool isValidUuid(string $uuid);
      * (+) bool isValidEmail(string $email);
      * (+) bool isValidSHA512(string $hash);
      * (+) bool doesFunctionExist(string $functionName);
-     * (+) bool isStringKey(string $str, iterable $keys);
+     * (+) bool isStringKey(string $str, array $keys);
      * (+) mixed get(string $key, string $subkey = null);
      * (+) mixed getProperty(string $name, string $key = null);
-     * (+) mixed __call(string $callback, iterable $parameters);
+     * (+) mixed __call(string $callback, array $parameters);
      * (+) object set(string $key, $value, string $subkey = null);
      * (+) object setProperty(string $name, $value, string $key = null);
-     * (-) Exception throwExceptionError(iterable $error);
-     * (-) InvalidArgumentException throwInvalidArgumentExceptionError(iterable $error);
+     * (-) Exception throwExceptionError(array $error);
+     * (-) InvalidArgumentException throwInvalidArgumentExceptionError(array $error);
      */
     use ServiceFunctions;
 
