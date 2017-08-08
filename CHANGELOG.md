@@ -4,6 +4,43 @@
 All notable changes to `UCSDMath/Authentication` (bug, security fixes, and component
 updates) will be documented in this file.
 
+### v1.23.0 (2017-08-09)
+
+ - Update to Node.js [(v8.2.1)](https://nodejs.org/en/)
+ - Update to RequireJS [(v2.3.4)](http://requirejs.org)
+ - Update to Composer [(v1.5.0)](https://getcomposer.org)
+ - Update to Webpack.js [(v3.4.1)](https://webpack.js.org)
+ - Update to PNotify.js [(v3.2.1)](https://www.npmjs.com/package/pnotify)
+ - Update to TinyMCE [(v4.6.5)](http://www.tinymce.com/download/download.php)
+ - Added plugin jQuery-Multiselect.js [(v2.3.12)](https://github.com/crlcu/multiselect)
+
+ - Update to PHP Component: symfony/yaml [(v3.3.6)](https://packagist.org/packages/symfony/yaml)
+ - Update to PHP Component: symfony/debug [(v3.3.6)](https://packagist.org/packages/symfony/debug)
+ - Update to PHP Component: symfony/finder [(v3.3.6)](https://packagist.org/packages/symfony/finder)
+ - Update to PHP Component: symfony/console [(v3.3.6)](https://packagist.org/packages/symfony/console)
+ - Update to PHP Component: symfony/process [(v3.3.6)](https://packagist.org/packages/symfony/process)
+ - Update to PHP Component: symfony/routing [(v3.3.6)](https://packagist.org/packages/symfony/routing)
+ - Update to PHP Component: symfony/security [(v3.3.6)](https://packagist.org/packages/symfony/security)
+ - Update to PHP Component: symfony/validator [(v3.3.6)](https://packagist.org/packages/symfony/validator)
+ - Update to PHP Component: symfony/filesystem [(v3.3.6)](https://packagist.org/packages/symfony/filesystem)
+ - Update to PHP Component: symfony/serializer [(v3.3.6)](https://packagist.org/packages/symfony/serializer)
+ - Update to PHP Component: symfony/var-dumper [(v3.3.6)](https://packagist.org/packages/symfony/var-dumper)
+ - Update to PHP Component: symfony/browser-kit [(v3.3.6)](https://packagist.org/packages/symfony/browser-kit)
+ - Update to PHP Component: symfony/dom-crawler [(v3.3.6)](https://packagist.org/packages/symfony/dom-crawler)
+ - Update to PHP Component: symfony/http-kernel [(v3.3.6)](https://packagist.org/packages/symfony/http-kernel)
+ - Update to PHP Component: symfony/security-core [(v3.3.6)](https://packagist.org/packages/symfony/security-core)
+ - Update to PHP Component: symfony/security-csrf [(v3.3.6)](https://packagist.org/packages/symfony/security-csrf)
+ - Update to PHP Component: symfony/http-foundation [(v3.3.6)](https://packagist.org/packages/symfony/http-foundation)
+ - Update to PHP Component: symfony/event-dispatcher [(v3.3.6)](https://packagist.org/packages/symfony/event-dispatcher)
+ - Update to PHP Component: symfony/framework-bundle [(v3.3.6)](https://packagist.org/packages/symfony/framework-bundle)
+ - Update to PHP Component: symfony/options-resolver [(v3.3.6)](https://packagist.org/packages/symfony/options-resolver)
+
+ - Update to PHP Component: endroid/qrcode [(v2.2.4)](https://github.com/endroid/QrCode)
+ - Update to PHP Component: milon/barcode [(v5.3.6)](https://packagist.org/packages/milon/barcode)
+ - Update to PHP Component: phpunit/phpunit [(v6.3.0)](https://packagist.org/packages/phpunit/phpunit)
+
+ - Notes: None
+
 ### v1.22.0 (2017-07-18)
 
  - Update to PHP Component: symfony/yaml [(v3.3.5)](https://packagist.org/packages/symfony/yaml)
