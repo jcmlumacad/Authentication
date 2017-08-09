@@ -8,8 +8,8 @@ updates) will be documented in this file.
 
  - Update to Node.js [(v8.2.1)](https://nodejs.org/en/)
  - Update to RequireJS [(v2.3.4)](http://requirejs.org)
- - Update to Composer [(v1.5.0)](https://getcomposer.org)
- - Update to Webpack.js [(v3.4.1)](https://webpack.js.org)
+ - Update to Composer [(v1.5.1)](https://getcomposer.org)
+ - Update to Webpack.js [(v3.5.2)](https://webpack.js.org)
  - Update to PNotify.js [(v3.2.1)](https://www.npmjs.com/package/pnotify)
  - Update to TinyMCE [(v4.6.5)](http://www.tinymce.com/download/download.php)
  - Added plugin jQuery-Multiselect.js [(v2.3.12)](https://github.com/crlcu/multiselect)
