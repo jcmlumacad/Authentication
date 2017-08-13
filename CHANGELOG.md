@@ -4,6 +4,23 @@
 All notable changes to `UCSDMath/Authentication` (bug, security fixes, and component
 updates) will be documented in this file.
 
+### v1.24.0 (2017-08-13)
+
+ - Update to Node.js [(v8.3.0)](https://nodejs.org/en/)
+ - Update to Webpack.js [(v3.5.4)](https://webpack.js.org)
+
+ - Update to PHP Component: doctrine/orm [(v 2.5.7)](https://packagist.org/packages/doctrine/orm)
+ - Update to PHP Component: doctrine/dbal [(v 2.6.1)](https://packagist.org/packages/doctrine/dbal)
+ - Update to PHP Component: doctrine/cache [(v 1.6.1)](https://packagist.org/packages/doctrine/cache)
+ - Update to PHP Component: doctrine/lexer [(v 1.0.1)](https://packagist.org/packages/doctrine/lexer)
+ - Update to PHP Component: doctrine/common [(v 2.8.0)](https://packagist.org/packages/doctrine/common)
+ - Update to PHP Component: doctrine/inflector [(v 1.2.0)](https://packagist.org/packages/doctrine/inflector)
+ - Update to PHP Component: doctrine/annotations [(v 1.5.0)](https://packagist.org/packages/doctrine/annotations)
+ - Update to PHP Component: doctrine/collections [(v 1.5.0)](https://packagist.org/packages/doctrine/collections)
+ - Update to PHP Component: doctrine/data-fixtures [(v 1.2.2)](https://packagist.org/packages/doctrine/data-fixtures)
+
+ - Notes: multiple application and macro CSS updates for the UCSDMath Framework
+
 ### v1.23.0 (2017-08-09)
 
  - Update to Node.js [(v8.2.1)](https://nodejs.org/en/)
