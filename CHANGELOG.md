@@ -4,6 +4,51 @@
 All notable changes to `UCSDMath/Authentication` (bug, security fixes, and component
 updates) will be documented in this file.
 
+### v1.25.0 (2017-09-05)
+
+ - Update to npm [(v5.4.0)](https://www.npmjs.com)
+ - Update to Babel.js [(v6.26.0)](https://babeljs.io)
+ - Update to Node.js [(v8.4.0)](https://nodejs.org/en/)
+ - Update to RequireJS [(v2.3.5)](http://requirejs.org)
+ - Update to Webpack.js [(v3.5.5)](https://webpack.js.org)
+ - Update to CountUp.js [(v1.9.1)](http://inorganik.github.io/countUp.js/)
+ - Update to TinyMCE [(v4.6.6)](http://www.tinymce.com/download/download.php)
+ - Update to jQuery-Multiselect.js [(v2.3.13)](https://github.com/crlcu/multiselect)
+ - Added plugin bootstrap-select [(v1.12.4)](https://www.npmjs.com/package/bootstrap-select)
+
+ - Update to PHP Component: symfony/yaml [(v3.3.8)](https://packagist.org/packages/symfony/yaml)
+ - Update to PHP Component: symfony/debug [(v3.3.8)](https://packagist.org/packages/symfony/debug)
+ - Update to PHP Component: symfony/finder [(v3.3.8)](https://packagist.org/packages/symfony/finder)
+ - Update to PHP Component: symfony/console [(v3.3.8)](https://packagist.org/packages/symfony/console)
+ - Update to PHP Component: symfony/process [(v3.3.8)](https://packagist.org/packages/symfony/process)
+ - Update to PHP Component: symfony/routing [(v3.3.8)](https://packagist.org/packages/symfony/routing)
+ - Update to PHP Component: symfony/security [(v3.3.8)](https://packagist.org/packages/symfony/security)
+ - Update to PHP Component: symfony/validator [(v3.3.8)](https://packagist.org/packages/symfony/validator)
+ - Update to PHP Component: symfony/filesystem [(v3.3.8)](https://packagist.org/packages/symfony/filesystem)
+ - Update to PHP Component: symfony/serializer [(v3.3.8)](https://packagist.org/packages/symfony/serializer)
+ - Update to PHP Component: symfony/var-dumper [(v3.3.8)](https://packagist.org/packages/symfony/var-dumper)
+ - Update to PHP Component: symfony/browser-kit [(v3.3.8)](https://packagist.org/packages/symfony/browser-kit)
+ - Update to PHP Component: symfony/dom-crawler [(v3.3.8)](https://packagist.org/packages/symfony/dom-crawler)
+ - Update to PHP Component: symfony/http-kernel [(v3.3.8)](https://packagist.org/packages/symfony/http-kernel)
+ - Update to PHP Component: symfony/security-core [(v3.3.8)](https://packagist.org/packages/symfony/security-core)
+ - Update to PHP Component: symfony/security-csrf [(v3.3.8)](https://packagist.org/packages/symfony/security-csrf)
+ - Update to PHP Component: symfony/http-foundation [(v3.3.8)](https://packagist.org/packages/symfony/http-foundation)
+ - Update to PHP Component: symfony/event-dispatcher [(v3.3.8)](https://packagist.org/packages/symfony/event-dispatcher)
+ - Update to PHP Component: symfony/framework-bundle [(v3.3.8)](https://packagist.org/packages/symfony/framework-bundle)
+ - Update to PHP Component: symfony/options-resolver [(v3.3.8)](https://packagist.org/packages/symfony/options-resolver)
+ - Update to PHP Component: symfony/polyfill-mbstring [(v 1.5.0)](https://packagist.org/packages/symfony/polyfill-mbstring)
+
+ - Update to PHP Component: league/csv [(v9.0.1)](https://packagist.org/packages/league/csv)
+ - Update to PHP Component: doctrine/orm [(v 2.5.10)](https://packagist.org/packages/doctrine/orm)
+ - Update to PHP Component: doctrine/dbal [(v 2.6.2)](https://packagist.org/packages/doctrine/dbal)
+ - Update to PHP Component: doctrine/cache [(v 1.7.1)](https://packagist.org/packages/doctrine/cache)
+ - Update to PHP Component: doctrine/common [(v 2.8.1)](https://packagist.org/packages/doctrine/common)
+ - Update to PHP Component: fzaninotto/faker [(v 1.7.1)](https://packagist.org/packages/fzaninotto/faker)
+ - Update to PHP Component: illuminate/cache [(v5.5.2)](https://packagist.org/packages/illuminate/cache)
+ - Update to PHP Component: illuminate/filesystem [(v5.5.2)](https://packagist.org/packages/illuminate/filesystem)
+
+ - Notes: Added PHP script to allow global applications to use ConfigurationVault with a simple require statement
+
 ### v1.24.0 (2017-08-13)
 
  - Update to Node.js [(v8.3.0)](https://nodejs.org/en/)
