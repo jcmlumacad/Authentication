@@ -15,18 +15,18 @@
     "require": {
         "php": ">=7.1",
         "symfony/http-foundation": "3.3.8",
-        "ucsdmath/database": "1.25.0",
-        "ucsdmath/functions": "1.25.0",
-        "ucsdmath/filesystem": "1.25.0",
-        "ucsdmath/encryption": "1.25.0",
-        "ucsdmath/configuration": "1.25.0"
+        "ucsdmath/database": "1.25.x-dev",
+        "ucsdmath/functions": "1.25.x-dev",
+        "ucsdmath/filesystem": "1.25.x-dev",
+        "ucsdmath/encryption": "1.25.x-dev",
+        "ucsdmath/configuration": "1.25.x-dev"
     },
     "require-dev": {
         "symfony/debug": "3.3.8",
         "mockery/mockery": "0.9.9",
         "phpunit/phpunit": "6.3.0",
         "fzaninotto/faker": "1.7.1",
-        "ucsdmath/date": "1.25.0",
+        "ucsdmath/date": "1.25.x-dev",
         "symfony/var-dumper": "3.3.8",
         "symfony/browser-kit": "3.3.8",
         "symfony/dom-crawler": "3.3.8",
