@@ -4,6 +4,46 @@
 All notable changes to `UCSDMath/Authentication` (bug, security fixes, and component
 updates) will be documented in this file.
 
+### v1.26.0 (2017-09-17)
+
+ - Update to npm [(v5.4.2)](https://www.npmjs.com)
+ - Update to Node.js [(v8.5.0)](https://nodejs.org/en/)
+ - Update to Composer [(v1.5.2)](https://getcomposer.org)
+ - Update to Webpack.js [(v3.6.0)](https://webpack.js.org)
+
+ - Update to PHP Component: symfony/yaml [(v3.3.9)](https://packagist.org/packages/symfony/yaml)
+ - Update to PHP Component: symfony/debug [(v3.3.9)](https://packagist.org/packages/symfony/debug)
+ - Update to PHP Component: symfony/finder [(v3.3.9)](https://packagist.org/packages/symfony/finder)
+ - Update to PHP Component: symfony/console [(v3.3.9)](https://packagist.org/packages/symfony/console)
+ - Update to PHP Component: symfony/process [(v3.3.9)](https://packagist.org/packages/symfony/process)
+ - Update to PHP Component: symfony/routing [(v3.3.9)](https://packagist.org/packages/symfony/routing)
+ - Update to PHP Component: symfony/security [(v3.3.9)](https://packagist.org/packages/symfony/security)
+ - Update to PHP Component: symfony/validator [(v3.3.9)](https://packagist.org/packages/symfony/validator)
+ - Update to PHP Component: symfony/filesystem [(v3.3.9)](https://packagist.org/packages/symfony/filesystem)
+ - Update to PHP Component: symfony/serializer [(v3.3.9)](https://packagist.org/packages/symfony/serializer)
+ - Update to PHP Component: symfony/var-dumper [(v3.3.9)](https://packagist.org/packages/symfony/var-dumper)
+ - Update to PHP Component: symfony/browser-kit [(v3.3.9)](https://packagist.org/packages/symfony/browser-kit)
+ - Update to PHP Component: symfony/dom-crawler [(v3.3.9)](https://packagist.org/packages/symfony/dom-crawler)
+ - Update to PHP Component: symfony/http-kernel [(v3.3.9)](https://packagist.org/packages/symfony/http-kernel)
+ - Update to PHP Component: symfony/security-core [(v3.3.9)](https://packagist.org/packages/symfony/security-core)
+ - Update to PHP Component: symfony/security-csrf [(v3.3.9)](https://packagist.org/packages/symfony/security-csrf)
+ - Update to PHP Component: symfony/http-foundation [(v3.3.9)](https://packagist.org/packages/symfony/http-foundation)
+ - Update to PHP Component: symfony/event-dispatcher [(v3.3.9)](https://packagist.org/packages/symfony/event-dispatcher)
+ - Update to PHP Component: symfony/framework-bundle [(v3.3.9)](https://packagist.org/packages/symfony/framework-bundle)
+ - Update to PHP Component: symfony/options-resolver [(v3.3.9)](https://packagist.org/packages/symfony/options-resolver)
+
+ - Update to PHP Component: endroid/qrcode [(v2.3.2)](https://github.com/endroid/QrCode)
+ - Added new jQuery-Filterizr.js plugin [(v1.2.5)](https://github.com/giotiskl/Filterizr/releases)
+
+ - Added chime control to configuration (ConfigurationSoundscapes.php) for Panel and other applications
+ - Added shuffle routine to the Panel button applications.
+ - Added startup chimes to Panel upon new daily login and setup for the user.
+ - Renamed Application `News Post` to `News Manager`
+ - Updated layout in the portal `Update Contact Information` page.
+ - Started building `Faculty Profile Updater` page.
+
+ - Notes: Updated multiple CSS files associated with UCSDMath applications (pushed to *main.css)
+
 ### v1.25.0 (2017-09-05)
 
  - Update to npm [(v5.4.0)](https://www.npmjs.com)
