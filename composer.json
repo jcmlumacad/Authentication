@@ -24,7 +24,7 @@
     "require-dev": {
         "symfony/debug": "3.3.9",
         "mockery/mockery": "0.9.9",
-        "phpunit/phpunit": "6.3.0",
+        "phpunit/phpunit": "6.3.1",
         "fzaninotto/faker": "1.7.1",
         "ucsdmath/date": "1.27.x-dev",
         "symfony/var-dumper": "3.3.9",
