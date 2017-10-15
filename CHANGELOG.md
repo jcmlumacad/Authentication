@@ -4,6 +4,53 @@
 All notable changes to `UCSDMath/Authentication` (bug, security fixes, and component
 updates) will be documented in this file.
 
+### v1.27.0 (2017-10-15)
+
+ - Update to npm [(v5.5.1)](https://www.npmjs.com)
+ - Update to Moment [(v2.19.1)](http://momentjs.com)
+ - Update to Node.js [(v8.7.0)](https://nodejs.org/en/)
+ - Update to Webpack.js [(v3.7.1)](https://webpack.js.org)
+ - Update to React.js [(v15.6.2)](https://facebook.github.io/react/)
+ - Update to hashids.js [(v1.1.2)](https://www.npmjs.com/package/hashids)
+ - Update to TinyMCE [(v4.7.1)](http://www.tinymce.com/download/download.php)
+ - Update to UAParser.js [(v0.7.17)](https://github.com/faisalman/ua-parser-js/releases)
+
+ - Update to PHP Component: symfony/yaml [(v3.3.10)](https://packagist.org/packages/symfony/yaml)
+ - Update to PHP Component: symfony/debug [(v3.3.10)](https://packagist.org/packages/symfony/debug)
+ - Update to PHP Component: symfony/finder [(v3.3.10)](https://packagist.org/packages/symfony/finder)
+ - Update to PHP Component: symfony/console [(v3.3.10)](https://packagist.org/packages/symfony/console)
+ - Update to PHP Component: symfony/process [(v3.3.10)](https://packagist.org/packages/symfony/process)
+ - Update to PHP Component: symfony/routing [(v3.3.10)](https://packagist.org/packages/symfony/routing)
+ - Update to PHP Component: symfony/security [(v3.3.10)](https://packagist.org/packages/symfony/security)
+ - Update to PHP Component: symfony/validator [(v3.3.10)](https://packagist.org/packages/symfony/validator)
+ - Update to PHP Component: symfony/filesystem [(v3.3.10)](https://packagist.org/packages/symfony/filesystem)
+ - Update to PHP Component: symfony/serializer [(v3.3.10)](https://packagist.org/packages/symfony/serializer)
+ - Update to PHP Component: symfony/var-dumper [(v3.3.10)](https://packagist.org/packages/symfony/var-dumper)
+ - Update to PHP Component: symfony/browser-kit [(v3.3.10)](https://packagist.org/packages/symfony/browser-kit)
+ - Update to PHP Component: symfony/dom-crawler [(v3.3.10)](https://packagist.org/packages/symfony/dom-crawler)
+ - Update to PHP Component: symfony/http-kernel [(v3.3.10)](https://packagist.org/packages/symfony/http-kernel)
+ - Update to PHP Component: symfony/security-core [(v3.3.10)](https://packagist.org/packages/symfony/security-core)
+ - Update to PHP Component: symfony/security-csrf [(v3.3.10)](https://packagist.org/packages/symfony/security-csrf)
+ - Update to PHP Component: symfony/http-foundation [(v3.3.10)](https://packagist.org/packages/symfony/http-foundation)
+ - Update to PHP Component: symfony/event-dispatcher [(v3.3.10)](https://packagist.org/packages/symfony/event-dispatcher)
+ - Update to PHP Component: symfony/framework-bundle [(v3.3.10)](https://packagist.org/packages/symfony/framework-bundle)
+ - Update to PHP Component: symfony/options-resolver [(v3.3.10)](https://packagist.org/packages/symfony/options-resolver)
+
+ - Update to PHP Component: swiftmailer/swiftmailer [(v6.0.2)](http://swiftmailer.org)
+ - Update to PHP Component: twig/twig [(v2.4.4)](https://packagist.org/packages/twig/twig)
+ - Update to PHP Component: doctrine/orm [(v2.5.11)](https://packagist.org/packages/doctrine/orm)
+ - Update to PHP Component: phpunit/phpunit [(v6.4.2)](https://packagist.org/packages/phpunit/phpunit)
+ - Update to PHP Component: mockery/mockery [(v1.0.0)](https://packagist.org/packages/mockery/mockery)
+ - Update to PHP Component: intervention/image [(v2.4.1)](https://packagist.org/packages/intervention/image)
+ - Update to PHP Component: squizlabs/php_codesniffer [(v3.1.0)](https://github.com/squizlabs/PHP_CodeSniffer)
+
+ - Notes:
+   Automated the split of `ucsdmath-node-components.min.js`
+   Now distributed across three (3) files:
+      + `ucsdmath-node-collections.min.js`
+      + `ucsdmath-node-components.min.js`
+      + `ucsdmath-node-dependency-injection.min.js`
+
 ### v1.26.0 (2017-09-17)
 
  - Update to npm [(v5.4.2)](https://www.npmjs.com)
