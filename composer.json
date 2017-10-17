@@ -31,7 +31,7 @@
         "symfony/browser-kit": "3.3.10",
         "symfony/dom-crawler": "3.3.10",
         "symfony/options-resolver": "3.3.10",
-        "squizlabs/php_codesniffer": "3.1.0"
+        "squizlabs/php_codesniffer": "3.1.1"
     },
     "autoload": {
         "psr-4": {
