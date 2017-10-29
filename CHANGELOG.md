@@ -4,6 +4,29 @@
 All notable changes to `UCSDMath/Authentication` (bug, security fixes, and component
 updates) will be documented in this file.
 
+### v1.28.0 (2017-10-29)
+
+ - Update to Node.js [(v8.8.1)](https://nodejs.org/en/)
+ - Update to Webpack.js [(v3.8.1)](https://webpack.js.org)
+ - Update to jQuery-Multiselect.js [(v2.4.0)](https://github.com/crlcu/multiselect)
+
+ - Update to PHP Component: endroid/qrcode [(v2.4.0)](https://github.com/endroid/QrCode)
+ - Update to PHP Component: league/csv [(v9.1.0)](https://packagist.org/packages/league/csv)
+ - Update to PHP Component: doctrine/orm [(v2.5.12)](https://packagist.org/packages/doctrine/orm)
+ - Update to PHP Component: hashids/hashids [(v2.0.4)](https://packagist.org/packages/hashids/hashids)
+ - Update to PHP Component: phpunit/phpunit [(v6.4.3)](https://packagist.org/packages/phpunit/phpunit)
+ - Update to PHP Component: illuminate/cache [(v5.5.17)](https://packagist.org/packages/illuminate/cache)
+ - Update to PHP Component: league/uri-parser [(v1.2.0)](https://packagist.org/packages/league/uri-parser)
+ - Update to PHP Component: illuminate/support [(v5.5.17)](https://packagist.org/packages/illuminate/support)
+ - Update to PHP Component: respect/validation [(v1.1.14)](https://packagist.org/packages/respect/validation)
+ - Update to PHP Component: phpseclib/phpseclib [(v2.0.7)](https://packagist.org/packages/phpseclib/phpseclib)
+ - Update to PHP Component: squizlabs/php_codesniffer [(v3.1.1)](https://github.com/squizlabs/PHP_CodeSniffer)
+ - Update to PHP Component: illuminate/filesystem [(v5.5.17)](https://packagist.org/packages/illuminate/filesystem)
+ - Update to PHP Component: spatie/flysystem-dropbox [(v1.0.5)](https://packagist.org/packages/spatie/flysystem-dropbox)
+ - Update to PHP Component: symfony/polyfill-mbstring [(v1.6.0)](https://packagist.org/packages/symfony/polyfill-mbstring)
+
+ - Renamed external-configuration-settings to configuration-vault-settings
+
 ### v1.27.0 (2017-10-15)
 
  - Update to npm [(v5.5.1)](https://www.npmjs.com)
