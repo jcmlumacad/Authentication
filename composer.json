@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "symfony/http-foundation": "3.3.10",
+        "symfony/http-foundation": "3.3.11",
         "ucsdmath/database": "1.29.x-dev",
         "ucsdmath/functions": "1.29.x-dev",
         "ucsdmath/filesystem": "1.29.x-dev",
@@ -22,15 +22,15 @@
         "ucsdmath/configuration": "1.29.x-dev"
     },
     "require-dev": {
-        "symfony/debug": "3.3.10",
+        "symfony/debug": "3.3.11",
         "mockery/mockery": "1.0.0",
-        "phpunit/phpunit": "6.4.3",
+        "phpunit/phpunit": "6.4.4",
         "fzaninotto/faker": "1.7.1",
         "ucsdmath/date": "1.29.x-dev",
-        "symfony/var-dumper": "3.3.10",
-        "symfony/browser-kit": "3.3.10",
-        "symfony/dom-crawler": "3.3.10",
-        "symfony/options-resolver": "3.3.10",
+        "symfony/var-dumper": "3.3.11",
+        "symfony/browser-kit": "3.3.11",
+        "symfony/dom-crawler": "3.3.11",
+        "symfony/options-resolver": "3.3.11",
         "squizlabs/php_codesniffer": "3.1.1"
     },
     "autoload": {
